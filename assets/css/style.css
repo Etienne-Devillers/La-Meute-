@@ -1,0 +1,227 @@
+@font-face {
+    font-family: "Rajdhani";
+    src: url(../font/Rajdhani-Medium.ttf);
+}
+
+body {
+    margin: 0;
+    font-family: "Rajdhani";
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/************************************************************************/
+/*----------------------------Section NavBar----------------------------*/
+/************************************************************************/
+
+.navBar {
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    flex-direction: row;
+    width: 100vw;
+    font-family: "Rajdhani";
+    font-weight: 600;
+    font-size: 1.3em;
+    border-bottom: solid 1px grey;
+}
+
+.logoNavBar {
+    width: 100px;
+}
+
+.navBarLeftSide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-right: solid 1px grey;
+}
+
+.navBarLeftSide h5 {
+    margin: 0 1em;
+    color: white;
+    font-weight: 800;
+    font-size: 1.8em;
+}
+
+.navBarRightSide {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+
+
+
+.navBar ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 1em;
+    height: 100%;
+
+}
+
+.navBar ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navBarLinks li a {
+    padding: 0 0.4em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navBarLinks li a:hover {
+    background-color: black;
+    opacity: 0.5;
+    transition: 0.2s;
+}
+
+
+
+.navBarRightSide .loggingInputs {
+    margin-right: 0.5em;
+}
+
+.navBarRightSide .loggingInputs li {
+    margin-right: 0.5em;
+}
+
+/*---------- Boutons de connexion/Inscription----------- */
+
+.loggingInputs {
+    display: flex;
+    flex-direction: row;
+}
+
+.connectBtn {
+    background-color: #28A737;
+    padding: 0.2em 0.5em;
+    border-radius: 15px;
+
+}
+
+
+
+
+
+
+/************************************************************************/
+/*-------------------------Section landingPage--------------------------*/
+/************************************************************************/
+
+.landingPage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/hunt-showdown-wallPaper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.wrapperLandingPageContainer {
+    width: 80%;
+    margin-right: 10em;
+    margin-left: 10em;
+
+
+}
+
+.wrapperLandingPageContainer h2 {
+    color: white;
+    font-size: 7em;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+
+}
+
+.wrapperLandingPageContainer p {
+    color: white;
+    font-size: 2em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1em;
+
+}
+
+.landingPageBottomContainer {
+    min-width: 600px;
+    height: 300px;
+margin-top: 5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.landingPage .firstContent {
+    height: 100%;
+    margin: 0 0.5em;
+    font-size: 2em;
+}
+
+.landingPage .greenRectangle {
+
+    height: 100%;
+    width: 100%;
+    border: solid 5px #28A737;
+}
+
+.landingPage .secondContent {
+    margin: 0 0.5em;
+    height: 100%;
+    font-size: 2em;
+
+}
+
+.landingPage .rightPartContainer {
+    flex: 1;
+}
+
+.arrowAngle {
+    margin-top: 1em;
+    width: 50%;
+    height: 50px;
+    border-right: solid 3px white;
+    border-top: solid 3px white;
+}
+
+.landingPage .bottomRightText {
+    font-size: 1.5em;
+    
+    position: relative;
+}
+
+.landingPage .bottomRightText::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 110%;
+    clip-path: polygon(50% 100%, 5% 0, 100% 0);
+    background-color: #28A737;
+    height: 50px;
+    width: 50px;
+}
+
+.landingPage .bottomRightContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
