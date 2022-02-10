@@ -33,7 +33,7 @@ a {
 .fixed {
     background-color: black;
     height: 70px;
-    transition: 0.5s ease !important;
+    transition: 0.3s ease !important;
 }
 
 .logoNavBar {
@@ -43,7 +43,7 @@ a {
 .logoNavBarFixed {
     margin-top: 0.5em;
     width: 80px;
-    transition: 0.5s ease !important;
+    transition: 0.3s ease !important;
 }
 
 .navBarLeftSide {
@@ -61,6 +61,7 @@ a {
     color: white;
     font-weight: 800;
     font-size: 1.8em;
+    line-height: 0.9;
 }
 
 .navBarRightSide {
@@ -130,26 +131,32 @@ a {
 
 /* --------------------Partie Responsive ------------------ */
 .burgerMenu {
-    width: 50px;
+    width: 30px;
     margin-left: 1em;
     display: none;
+    filter: invert(92%) sepia(0%) saturate(51%) hue-rotate(149deg) brightness(94%) contrast(101%);
 }
 
 .active {
-    display: block;
+    display: block !important;
 }
+
 .sideNavBarActive{
-    display: block;
-    transition: 0.3s;
-    left: 0;
+    display: block  !important ;
+    left: 0px !important;
+    transition: 0.3s  ;
+
 }
 .sideNavBarContainer {
     background-color: rgba(0, 0, 0, 0.445);
     width: 100vw;
     height: 100vh;
     position: fixed;
-    z-index: 2
+    z-index: 2;
+    display: none;
+    transition: 0.3s;
 }
+
 
 .sideNavBar {
     height: 100%;
@@ -160,7 +167,8 @@ a {
     background-color: black;
     position: fixed;
     z-index: 3;
-    transition: 0.5s;
+    left: -500px;
+    transition: 0.3s;
 }
 
 .sideNavBar ul {
@@ -216,6 +224,8 @@ a {
     background-image: url(../img/hunt-showdown-wallPaper.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
 
 }
 
