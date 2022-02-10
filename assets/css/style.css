@@ -22,11 +22,11 @@ a {
     position: fixed;
     z-index: 10;
     flex-direction: row;
-    width: 100vw;
     font-family: "Rajdhani";
     font-weight: 600;
     font-size: 1.3em;
     height: 100px;
+    width: 100vw;
     border-bottom: solid 1px grey;
 }
 
@@ -52,7 +52,6 @@ a {
     align-items: center;
     border-right: solid 1px grey;
     width: 25vw;
-    justify-content: space-between;
 }
 
 .navBarLeftSide h5 {
@@ -123,7 +122,7 @@ a {
 }
 
 .connectBtn {
-    background-color: #28A737;
+    background: linear-gradient(120deg, rgba(40,167,55,1) 0%, rgba(10,255,2,1) 100%);
     padding: 0.2em 0.5em;
     border-radius: 15px;
 
@@ -189,10 +188,6 @@ a {
     .navBarRightSide .navBarLinks {
         display: none;
     }
-
-}
-
-@media screen and (max-width: 935px) {
     .navBarLeftSide h5 {
         display: none;
         margin-right: 0;
@@ -230,7 +225,7 @@ a {
 }
 
 .LandingPageContainer {
-    width: 80%;
+    width: 100%;
     margin-right: 10em;
     margin-left: 10em;
 
@@ -321,7 +316,7 @@ a {
     transform: translateX(-50%);
     top: 110%;
     clip-path: polygon(50% 100%, 5% 0, 100% 0);
-    background-color: #28A737;
+    background:linear-gradient(120deg, rgba(40,167,55,1) 0%, rgba(10,255,2,1) 100%);
     height: 50px;
     width: 50px;
 }
@@ -340,4 +335,15 @@ a {
 .whyCoachSection {
     background-color: #1D2029;
     height: 400px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whyCoachContainer {
+    width: 80%;
+    height: 70%;
+    background-color: #2A3C44;
+    border-radius: 25px;
 }
