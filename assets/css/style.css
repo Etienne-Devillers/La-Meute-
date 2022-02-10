@@ -162,8 +162,7 @@ a {
 
 .landingPageBottomContainer {
     min-width: 600px;
-    height: 300px;
-margin-top: 5em;
+    margin-top: 5em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -174,13 +173,15 @@ margin-top: 5em;
     height: 100%;
     margin: 0 0.5em;
     font-size: 2em;
+    
 }
 
 .landingPage .greenRectangle {
 
     height: 100%;
     width: 100%;
-    border: solid 5px #28A737;
+    border: solid 4px #28A737;
+    padding: 0 0.5em;
 }
 
 .landingPage .secondContent {
