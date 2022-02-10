@@ -334,7 +334,7 @@ a {
 
 .whyCoachSection {
     background-color: #1D2029;
-    height: 400px;
+    height: 600px;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -346,4 +346,29 @@ a {
     height: 70%;
     background-color: #2A3C44;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.whyCoachContainer h5 {
+    font-size: 5vw;
+    color: white;
+    text-align: center;
+}
+
+.whyCoachElement{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 2em;
+}
+
+.whyCoach {
+    text-align: center;
+    margin: 0 1em;
+}
+
+.whyCoachTitles {
+    font-size: 3.5vw;
 }
