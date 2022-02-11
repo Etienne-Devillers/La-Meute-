@@ -122,7 +122,7 @@ a {
 }
 
 .connectBtn {
-    background: linear-gradient(120deg, rgba(40,167,55,1) 0%, rgba(10,255,2,1) 100%);
+    background: linear-gradient(120deg, rgba(40, 167, 55, 1) 0%, rgba(10, 255, 2, 1) 100%);
     padding: 0.2em 0.5em;
     border-radius: 15px;
 
@@ -140,12 +140,13 @@ a {
     display: block !important;
 }
 
-.sideNavBarActive{
-    display: block  !important ;
+.sideNavBarActive {
+    display: block !important;
     left: 0px !important;
-    transition: 0.3s  ;
+    transition: 0.3s;
 
 }
+
 .sideNavBarContainer {
     background-color: rgba(0, 0, 0, 0.445);
     width: 100vw;
@@ -188,10 +189,12 @@ a {
     .navBarRightSide .navBarLinks {
         display: none;
     }
+
     .navBarLeftSide h5 {
         display: none;
         margin-right: 0;
     }
+
     .navBarLeftSide {
         justify-content: center;
     }
@@ -316,7 +319,7 @@ a {
     transform: translateX(-50%);
     top: 110%;
     clip-path: polygon(50% 100%, 5% 0, 100% 0);
-    background:linear-gradient(120deg, rgba(40,167,55,1) 0%, rgba(10,255,2,1) 100%);
+    background: linear-gradient(120deg, rgba(40, 167, 55, 1) 0%, rgba(10, 255, 2, 1) 100%);
     height: 50px;
     width: 50px;
 }
@@ -340,6 +343,7 @@ a {
     align-items: center;
     position: relative;
 }
+
 /* 
 .whyCoachSection::after {
     content: '';
@@ -371,11 +375,12 @@ a {
 
 .iconsWhyCoach {
     font-size: 5vw;
-    background: linear-gradient(120deg, rgba(40,167,55,1) 0%, rgba(10,255,2,1) 100%);
+    background: linear-gradient(120deg, rgba(40, 167, 55, 1) 0%, rgba(10, 255, 2, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.whyCoachElements{
+
+.whyCoachElements {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -395,6 +400,7 @@ a {
 .whyCoach div {
     margin: 0.5em 0;
 }
+
 .whyCoach img {
     margin: 0.5em 0;
 }
@@ -402,17 +408,20 @@ a {
 .whyCoachTitles {
     font-size: 2.5vw;
 }
+
 .whyCoachText {
     font-size: 20px;
 }
+
 .whyCoach img {
     width: 40px;
     height: 40px;
 }
+
 /*  ------------- Responsive whycoachSection ------------------*/
 
 
-@media screen and (max-width: 760px){
+@media screen and (max-width: 760px) {
 
     .whyCoachElements {
         display: flex;
@@ -441,39 +450,69 @@ a {
 .gameCollectionSection {
     background-color: #2A3C44;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/*--------------- PArtie du text de gauche--------------- */
 .gameCollectionRow {
     display: flex;
-    margin-top:5em;
-margin-left:8.5vw;
-
+    margin: 5em 0;
 }
 
+.playLearnImproveContainer span {
+    overflow: hidden;
+
+}
 
 .playLearnImproveContainer {
 
     color: white;
     font-size: 8vw;
     margin: 0 0;
-
-display: flex;
-flex-direction: column;
-justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .playLearnImproveContainer h6 {
-    margin-right: 1vw;
+    margin-right: 1em;
     margin-top: 0;
     margin-bottom: 0;
+    transform: translateY(100%);
 }
 
+.play {}
+
+.learn {
+    animation-delay: 200ms;
+}
+
+.improve {
+    animation-delay: 400ms;
+}
+
+@keyframes appearingText {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+
+
+
+/*------------- PArtie des jeux affichés -------------*/
 .gameCollectionContainer {
-width: 60vw;
-display: flex;
-flex-direction: row;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
 }
 
-.gameDisplay{
+.gameDisplay {
     width: 20%;
     transition: 0.3s;
     height: 500px;
@@ -483,22 +522,101 @@ flex-direction: row;
     background-size: auto 100%;
     cursor: pointer;
 }
+
 .game1 {
     background-image: url(../img/wow-wallPaper.jpg);
 }
+
 .game2 {
     background-image: url(../img/hunt-showdown-wallPaper2.jpg);
 }
+
 .game3 {
     background-image: url(../img/rocketLeague-wallPaper.jpg);
 }
+
 .game4 {
     background-image: url(../img/lol-wallPaper.jfif);
 }
+
 .game5 {
     background-image: url(../img/csgo-wallPaper.jpg);
 }
 
 .gameDisplay:hover {
     width: 100%;
+}
+
+.improve {
+    color: rgba(10, 255, 2, 1);
+}
+
+
+/************************************************************************/
+/*--------------------Section Commentaire/Trustpilot--------------------*/
+/************************************************************************/
+
+
+.commentSection {
+    background-color: #1D2029;
+}
+
+.commentContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.commentSection h5 {
+    margin: 0;
+    padding: 1em 0;
+    text-align: center;
+    font-size: 5vw;
+    color: white;
+}
+
+.commentCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #2A3C44;
+    border-radius: 15px;
+    margin: 1em 1em;
+    color: white;
+
+}
+
+.commentContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerComment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5em 0.5em;
+}
+.topRightCornerComment {
+    display: flex;
+    justify-content: center;
+}
+
+
+.userNameComment {
+    font-size: 2em;
+}
+
+.userComment {
+    margin: 1em 1em;
+}
+
+.coachConcerned {
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.star {
+    background: rgb(255, 255, 0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
