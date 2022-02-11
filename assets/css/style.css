@@ -340,7 +340,7 @@ a {
     align-items: center;
     position: relative;
 }
-
+/* 
 .whyCoachSection::after {
     content: '';
     height: 60px;
@@ -349,13 +349,13 @@ a {
     position:  absolute;
     clip-path: polygon(50% 100%, 5% 0, 100% 0);
     bottom: -59px;
-}
+} */
 
 .whyCoachContainer {
     width: 80%;
     margin: 5em;
     background-color: #2A3C44;
-    border-radius: 25px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -402,7 +402,9 @@ a {
 .whyCoachTitles {
     font-size: 2.5vw;
 }
-
+.whyCoachText {
+    font-size: 20px;
+}
 .whyCoach img {
     width: 40px;
     height: 40px;
@@ -436,7 +438,67 @@ a {
 
 
 
-.gameCollection {
+.gameCollectionSection {
     background-color: #2A3C44;
+    display: flex;
+}
+
+.gameCollectionRow {
+    display: flex;
+    margin-top:5em;
+margin-left:8.5vw;
+
+}
+
+
+.playLearnImproveContainer {
+
+    color: white;
+    font-size: 8vw;
+    margin: 0 0;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.playLearnImproveContainer h6 {
+    margin-right: 1vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.gameCollectionContainer {
+width: 60vw;
+display: flex;
+flex-direction: row;
+}
+
+.gameDisplay{
+    width: 20%;
+    transition: 0.3s;
     height: 500px;
+    border-radius: 20px;
+    margin: 0 0.5em;
+    background-position: center;
+    background-size: auto 100%;
+    cursor: pointer;
+}
+.game1 {
+    background-image: url(../img/wow-wallPaper.jpg);
+}
+.game2 {
+    background-image: url(../img/hunt-showdown-wallPaper2.jpg);
+}
+.game3 {
+    background-image: url(../img/rocketLeague-wallPaper.jpg);
+}
+.game4 {
+    background-image: url(../img/lol-wallPaper.jfif);
+}
+.game5 {
+    background-image: url(../img/csgo-wallPaper.jpg);
+}
+
+.gameDisplay:hover {
+    width: 100%;
 }
