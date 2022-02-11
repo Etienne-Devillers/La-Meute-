@@ -334,41 +334,109 @@ a {
 
 .whyCoachSection {
     background-color: #1D2029;
-    height: 600px;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.whyCoachSection::after {
+    content: '';
+    height: 60px;
+    width: 100px;
+    background-color: #1D2029;
+    position:  absolute;
+    clip-path: polygon(50% 100%, 5% 0, 100% 0);
+    bottom: -59px;
 }
 
 .whyCoachContainer {
     width: 80%;
-    height: 70%;
+    margin: 5em;
     background-color: #2A3C44;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
 }
 
 .whyCoachContainer h5 {
     font-size: 5vw;
-    color: white;
     text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
-.whyCoachElement{
+.iconsWhyCoach {
+    font-size: 5vw;
+    background: linear-gradient(120deg, rgba(40,167,55,1) 0%, rgba(10,255,2,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.whyCoachElements{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0 2em;
+    align-content: space-around;
 }
 
 .whyCoach {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     text-align: center;
-    margin: 0 1em;
+    margin: 0.5em 1em;
+    align-items: center;
+}
+
+.whyCoach div {
+    margin: 0.5em 0;
+}
+.whyCoach img {
+    margin: 0.5em 0;
 }
 
 .whyCoachTitles {
-    font-size: 3.5vw;
+    font-size: 2.5vw;
+}
+
+.whyCoach img {
+    width: 40px;
+    height: 40px;
+}
+/*  ------------- Responsive whycoachSection ------------------*/
+
+
+@media screen and (max-width: 760px){
+
+    .whyCoachElements {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+        margin: 0.5em 1em;
+        align-items: center;
+    }
+
+    .whyCoachTitles {
+        font-size: 35px;
+    }
+
+    .whyCoachText {
+        font-size: 15px;
+    }
+}
+
+/************************************************************************/
+/*----------------------Section collection de jeu-----------------------*/
+/************************************************************************/
+
+
+
+.gameCollection {
+    background-color: #2A3C44;
+    height: 500px;
 }
