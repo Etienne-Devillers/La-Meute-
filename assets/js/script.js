@@ -3,13 +3,16 @@ let functionToggler = 'go'
 // Partie NAvBar 
 
 navBarAttached()  // On lance ces fonctions à l'initialisation au cas ou le visiteur n'est pas en haut de page
-appearText()
 
+if (document.querySelector('.gameCollectionSection')){
+appearText()
+}
 
 
 window.addEventListener('scroll', () => {
     navBarAttached()
 })
+
 document.querySelector('.burgerMenu').addEventListener('click', () => {
     console.log('bonjour')
     document.querySelector('.sideNavBarContainer').classList.add('active');
