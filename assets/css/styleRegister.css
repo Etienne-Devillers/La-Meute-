@@ -1,6 +1,8 @@
-.registerSection {
+body {
 background-color: #1D2029;
-height: 100vh;
+background-image: url(../img/Background2.png);
+background-repeat: no-repeat;
+
 
 }
 
@@ -14,6 +16,7 @@ height: 100vh;
     font-size: 4vw;
     color: white;
     margin-top: 0;
+    margin-bottom: 2rem;
 }
 
 .greenWord {
@@ -51,3 +54,13 @@ color: #e8303d;
     font-size: 15px;
     margin-bottom: 20rem;
 }
+
+#validForm{
+    margin-top: 1rem;
+    background: rgba(10, 255, 2, 1);
+    border-radius: 5px;
+    font-size: 28px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+

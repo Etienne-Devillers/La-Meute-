@@ -1,4 +1,4 @@
-<!-------------------- Section connection -------------------->
+<!-------------------- Section register -------------------->
 <section class="registerSection flexColCenter">
     <h1>Rejoins <span class="greenWord">la meute</span></h1>    
     <h5>Crée ton compte et commence dès aujourd'hui</h5>
