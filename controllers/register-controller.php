@@ -50,6 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $error['pwd'] = 'Remplissez les deux champs.' ;
         }
 
+} else {
+
+    include(dirname(__FILE__).'/../views/templates/header.php');
+    include(dirname(__FILE__).'/../views/form.php');
+    include(dirname(__FILE__).'/../views/templates/footer.php');
 }
 
 

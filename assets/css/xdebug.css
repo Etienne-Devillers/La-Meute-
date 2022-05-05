@@ -1,0 +1,131 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+
+.xdebug-var-dump {
+    background: #fef9fb !important;
+    color: #000 !important;
+    padding: 4px 8px !important;
+    margin: 5px 10px !important;
+    text-align: left !important;
+    font-family: Menlo, Monaco, "Consolas", "Lucida Console", "courier new" !important;
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+    border-radius: 10px !important;
+    border: solid 3px #942343 !important;
+}
+
+.xdebug-error {
+    color: #333 !important;
+    margin: 5px 10px !important;
+    font-family: Tahoma !important;
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+    border-radius: 10px !important;
+    border: solid 3px #942343 !important;
+}
+
+.xdebug-error td,
+.xdebug-error th {
+    padding: 4px !important;
+    border-collapse: collapse !important;
+    vertical-align: top;
+}
+
+
+.xdebug-error>tbody>tr:first-child>th {
+    background: #942343 !important;
+    color: #fff !important;
+    font-size: 22px !important;
+    font-weight: normal;
+    font-family: Verdana !important;
+}
+
+.xdebug-error>tbody>tr:first-child>th span {
+    background: #f39800 !important;
+    margin: 2px;
+    padding: 5px;
+    line-height: 150%;
+    font-size: 12px !important;
+    vertical-align: middle;
+    color: #fff !important;
+    border: solid 2px #f39800;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px !important;
+    -o-border-radius: 20px !important;
+    border-radius: 20px !important;
+    /* height: 20px !important; */
+    display: block !important;
+    float: left !important;
+}
+
+.xdebug-error th {
+    background: -moz-linear-gradient(top, #fff, #ececec) !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ececec)) !important;
+}
+
+.xdebug-error th {
+    border-right: solid 1px #ececec !important;
+}
+
+.xdebug-error th:last-child {
+    border-right: 0 !important;
+}
+
+
+.xdebug-error td {
+    background: #fef9fb !important;
+    font-family: Menlo, Monaco, "Consolas", "Lucida Console", "courier new" !important;
+}
+
+.xdebug-error td {}
+
+.xdebug-error td {
+    border-right: dashed 1px #f0f0f0 !important;
+    border-bottom: dashed 1px #f0f0f0 !important;
+
+}
+
+.xdebug-error td:last-child {
+    border-right: 0 !important;
+}
+
+.xdebug-error tr:last-child td {
+    border-bottom: 0 !important;
+}
+
+.xdebug-error tr:last-child th,
+.xdebug-error tr:last-child td {
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+    border-radius: 10px !important;
+}
+
+font[color="#00bb00"],
+font[color="#4e9a06"] {
+    color: #618e34 !important;
+}
+
+font[color="#ff0000"],
+font[color="#cc0000"] {
+    color: #d83473 !important;
+}
+
+font[color="#3465a4"] {
+    color: #0075c2 !important;
+}
+
+.xdebug-error .xdebug-var-dump {
+    padding: 0 !important;
+    margin: 0 !important;
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+    border-radius: 10px !important;
+    border: none !important;
+}
+
+body>.xdebug-var-dump {
+    margin-top: 50px !important;
+}

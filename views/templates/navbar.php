@@ -13,7 +13,7 @@
     <nav class="navBar">
 
         <div class="navBarLeftSide">
-            <a href="#"><img src="/assets/img/MDMjib.png" alt="Logo de la Meute" class="logoNavBar"></a>
+            <a href="/accueil"><img src="/assets/img/MDMjib.png" alt="Logo de la Meute" class="logoNavBar"></a>
             <h5 class="navTitle">La Meute</h5>
         </div>
         <div class="navBarRightSide">
@@ -24,8 +24,8 @@
                 <li><a href="https://www.google.com">FAQ</a></li>
             </ul>
             <ul class="loggingInputs">
-                <li><a href="../../controllers/login-controller.php">S'inscrire</a></li>
-                <li><a href="https://www.google.com" class="connectBtn">Se connecter</a></li>
+                <li><a href="/inscription">S'inscrire</a></li>
+                <li><a href="/connexion" class="connectBtn">Se connecter</a></li>
             </ul>
         </div>
     </nav>

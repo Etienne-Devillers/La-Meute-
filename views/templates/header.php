@@ -8,8 +8,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/styleRegister.css">
+    <link rel="stylesheet" href="/assets/css/xdebug.css">
 
     <title>La Meute</title>
 </head>
 <body>
-    
+    <?php
+        include(dirname(__FILE__).'/navbar.php');
+        ?> 

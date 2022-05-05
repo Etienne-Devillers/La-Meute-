@@ -1,0 +1,30 @@
+# links follow
+Options +FollowSymlinks
+# # rewrite Apache activate
+RewriteEngine On
+
+# # /accueil
+RewriteRule ^accueil$ /index.php [L]
+
+# # /inscription
+RewriteRule ^inscription$ /controllers/register-controller.php [L]
+
+# # /Connexion
+RewriteRule ^connexion$ /controllers/login-controller.php [L]
+
+# # /nouveau rdv
+# RewriteRule ^new-appointment$ /controllers/appointments/add-appointment-controller.php [L]
+
+# # /list rdv
+#  RewriteRule ^list-appointments$ /controllers/appointments/list-appointments-controller.php [L]
+
+# # /detail rdv
+#  RewriteRule ^detail-appointment$ /controllers/appointments/detail-appointment-controller.php [L]
+
+# # /profil?id=N
+# RewriteCond %{QUERY_STRING} (?:^|&)id=(\d+)
+# RewriteRule ^profil$ /controllers/profil-patient-controller.php [L]
+
+# # /erreur?code=N
+# RewriteCond %{QUERY_STRING} (?:^|&)code=(\d+)
+# RewriteRule ^erreur$ /controllers/error-controller.php [L]
