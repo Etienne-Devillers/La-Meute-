@@ -1,1 +1,2 @@
 git rm --cached FILENAME config.php
+git rm --cached FILENAME utils/config.php
