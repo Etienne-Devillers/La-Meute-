@@ -15,9 +15,9 @@ function appearText() {
     if (functionToggler === 'stopfunction') {    //création d'un if pour empecher les executions suivantes de la fonction
         return;
     } else {
-        var gameCollectionOffset = document.querySelector('.gameCollectionSection').getBoundingClientRect();
+        var gameCollectionOffset = document.querySelector('.gameCollectionSection')?.getBoundingClientRect();
     }
-    if (gameCollectionOffset.top < window.screen.availHeight * 0.40) {
+    if (gameCollectionOffset?.top < window.screen.availHeight * 0.40) {
         let delay = 0;
         playLearnImprove.forEach(element => {
 

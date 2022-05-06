@@ -6,6 +6,11 @@ background-repeat: no-repeat;
 
 }
 
+.root{
+    --borderColor : transparent;
+    --mailBorderColor : transparent;
+}
+
 .registerSection h1 {
     font-size: 5vw;
     color: white;
@@ -55,6 +60,14 @@ color: #e8303d;
     margin-bottom: 20rem;
 }
 
+.border{
+    border: solid 2px var(--borderColor) !important;
+}
+
+.mailBorder {
+    border: solid 2px var(--mailBorderColor) !important;
+}
+
 #validForm{
     margin: 1em 0;
     background: rgba(10, 255, 2, 1);
@@ -64,5 +77,9 @@ color: #e8303d;
     cursor: pointer;
 }
 
+input:focus-visible {
+
+    outline: none;
+}
 
 

@@ -2,36 +2,37 @@
 <section class="registerSection flexColCenter">
     <h1>Rejoins <span class="greenWord">la meute</span></h1>    
     <h5>Crée ton compte et commence dès aujourd'hui</h5>
-    <form action="" class=" formRegister flexColCenter" method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+    <form class=" formRegister flexColCenter" method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">
     
         <label for="email">Adresse Email</label>
         <input type="email" 
         required
         name="email" 
         id="email" 
-        class="field" 
-        placeholder="<?= $error['email'] ?? '' ?>"
-        value="<?= (!isset($error['email']) && isset($email)) ? $email : ''?>"
+        class="field mailBorder" 
+        placeholder="<?= $error['mail'] ?? '' ?>"
+        value="<?= (!isset($error['mail']) && isset($mail)) ? $mail : ''?>"
         >
         
 
-        <label for="userName">Nom d'utilisateur</label>
+        <label for="username">Nom d'utilisateur</label>
         <input type="text"
         required 
-        name="userName" 
-        id="userName" 
+        name="username" 
+        id="username" 
         class="field" 
-        placeholder="<?= $error['userName'] ?? '' ?>"
+        placeholder="<?= $error['username'] ?? '' ?>"
         pattern="<?=REGEX_USERNAME?>"
-        value="<?= (!isset($error['userName']) && isset($userName))? $userName : ''?>" 
+        value="<?= (!isset($error['username']) && isset($username))? $username : ''?>" 
         >
 
         <label for="pwd">Mot de passe</label>
         <input type="password" 
         required
-        name="pwd" 
+        name="pwd"
+   
         id="pwd" 
-        class="field" 
+        class="field border" 
         placeholder="<?= $error['pwd'] ?? '' ?>" 
         pattern="<?=REGEX_PASSWORD?>" 
         >
@@ -41,7 +42,7 @@
         required
         name="confirmPwd" 
         id="confirmPwd" 
-        class="field" 
+        class="field border" 
         placeholder="<?= $error['pwd'] ?? '' ?>" 
         pattern="<?=REGEX_PASSWORD?>"  
         >
