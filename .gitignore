@@ -1,1 +1,1 @@
-utils/config.php
+git rm --cached FILENAME config.php

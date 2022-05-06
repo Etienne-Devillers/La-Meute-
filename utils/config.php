@@ -8,5 +8,3 @@ define('REGEX_PASSWORD', ".*^(?=.{8,30})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W
 define('DSN', 'mysql:host=localhost;dbname=lameute;charset=utf8');
 define('USERDB', 'meulouSuperAdmin');
 define('PWD', '2wGmoyhD0.sMDST!');
-
-//  test
