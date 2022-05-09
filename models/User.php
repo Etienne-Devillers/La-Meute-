@@ -230,4 +230,34 @@ public static function isUsernameExists(string $username): bool
             return $ex;
         }
     }
+
+    public static function getByUsername($username): object
+    {
+
+        try {
+            $pdo = Database::dbConnect();
+
+            $sql = 'SELECT * FROM `users` WHERE `username` = :username ;';
+
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':username', $username, PDO::PARAM_STR);
+
+            $result = $sth->execute();
+            
+            if ($result === false) {
+                //Erreur générale
+                throw new PDOException();
+            } else {
+                $patient = $sth->fetch();
+                if ($patient === false) {
+                    //username non trouvé
+                    throw new PDOException();
+                } else {
+                    return $patient;
+                }
+            }
+        } catch (\PDOException $ex) {
+            return $ex;
+        }
+    }
 }

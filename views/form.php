@@ -20,24 +20,27 @@
         required 
         name="username" 
         id="username" 
-        class="field" 
+        class="field usernameBorder" 
         placeholder="<?= $error['username'] ?? '' ?>"
         pattern="<?=REGEX_USERNAME?>"
         value="<?= (!isset($error['username']) && isset($username))? $username : ''?>" 
         >
 
         <label for="pwd">Mot de passe</label>
+        <div class="pwdField">
         <input type="password" 
         required
         name="pwd"
-   
         id="pwd" 
         class="field border" 
         placeholder="<?= $error['pwd'] ?? '' ?>" 
         pattern="<?=REGEX_PASSWORD?>" 
         >
+        <img src="/assets/img/eye-solid.svg" alt="Pictogramme qui represente un oeil" class="pwdImg">
+        </div>
 
         <label for="confirmPwd">Confirmation Mot de passe</label>
+        <div class="pwdField">
         <input type="password" 
         required
         name="confirmPwd" 
@@ -46,6 +49,7 @@
         placeholder="<?= $error['pwd'] ?? '' ?>" 
         pattern="<?=REGEX_PASSWORD?>"  
         >
+        </div>
         
 
         <input type="submit" value="S'inscrire" class="" id="validForm">

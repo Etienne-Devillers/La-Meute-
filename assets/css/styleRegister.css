@@ -9,6 +9,7 @@ background-repeat: no-repeat;
 .root{
     --borderColor : transparent;
     --mailBorderColor : transparent;
+    --usernameBorderColor : transparent;
 }
 
 .registerSection h1 {
@@ -68,6 +69,10 @@ color: #e8303d;
     border: solid 2px var(--mailBorderColor) !important;
 }
 
+.usernameBorder {
+    border: solid 2px var(--usernameBorderColor) !important;
+}
+
 #validForm{
     margin: 1em 0;
     background: rgba(10, 255, 2, 1);
@@ -80,6 +85,20 @@ color: #e8303d;
 input:focus-visible {
 
     outline: none;
+}
+
+.pwdField{
+    position: relative;
+
+}
+
+.pwdImg{
+    position: absolute;
+    width: 20px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
 }
 
 
