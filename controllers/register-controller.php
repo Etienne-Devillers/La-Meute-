@@ -4,6 +4,17 @@ require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../utils/config.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+//Load Composer's autoloader
+require_once(dirname(__FILE__) . '/../vendor/autoload.php');
+
+
 if (!empty($_SESSION['user'])) {
     header('location: /accueil');
     exit;
@@ -67,6 +78,36 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $user = new User($mail, $pwd, $username);
             $user->add();
             SessionFlash::create('Votre compte a bien été créé.');
+
+            $mailer = new PHPMailer(true);
+
+            
+                //Server settings
+                $mailer->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                $mailer->isSMTP();                                            //Send using SMTP
+                $mailer->Host       = 'mail.la-meute.etienne-devillers.fr';                     //Set the SMTP server to send through
+                $mailer->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mailer->Username   = 'admin@la-meute.etienne-devillers.fr';                     //SMTP username
+                $mailer->Password   = 'vuR;K&V2;DRs';                               //SMTP password
+                $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+                $mailer->Port       = 26;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            
+                //Recipients
+                $mailer->setFrom('admin@la-meute.etienne-devillers.fr', 'Administrateur');
+                $mailer->addAddress('devillers.etienne80@gmail.com', '');     //Add a recipient
+                $mailer->addReplyTo('info@example.com', 'Information');
+            
+                //Content
+                $mailer->isHTML(true);                                  //Set email format to HTML
+                $mailer->Subject = 'Here is the subject';
+                $mailer->Body    = 'This is the HTML message body <b>in bold!</b>';
+                $mailer->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            
+                $mailer->send();
+                echo 'Message has been sent';
+            
+
+
             header('location: /connexion');
             exit;   
         } else {
