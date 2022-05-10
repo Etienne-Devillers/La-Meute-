@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/styleRegister.css">
     <link rel="stylesheet" href="/assets/css/xdebug.css">
+    <link rel="stylesheet" href="/assets/css/styleProfil.css">
 
     <title>La Meute</title>
 </head>

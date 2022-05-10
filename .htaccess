@@ -12,8 +12,8 @@ RewriteRule ^inscription$ /controllers/register-controller.php [L]
 # # /Connexion
 RewriteRule ^connexion$ /controllers/login-controller.php [L]
 
-# # /nouveau rdv
-# RewriteRule ^new-appointment$ /controllers/appointments/add-appointment-controller.php [L]
+# # /profil
+RewriteRule ^profil$ /controllers/profil-controller.php [L]
 
 # # /list rdv
 #  RewriteRule ^list-appointments$ /controllers/appointments/list-appointments-controller.php [L]

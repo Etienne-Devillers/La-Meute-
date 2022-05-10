@@ -4,6 +4,10 @@ require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../utils/config.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 
+if (!empty($_SESSION['user'])) {
+    header('location: /accueil');
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
@@ -62,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         if (empty($error)) {
             $user = new User($mail, $pwd, $username);
             $user->add();
-            SessionFlash::create('Votre compte a bien était créé.');
+            SessionFlash::create('Votre compte a bien été créé.');
             header('location: /connexion');
             exit;   
         } else {

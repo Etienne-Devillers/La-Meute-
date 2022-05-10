@@ -1,17 +1,17 @@
 <!-------------------- Section connection -------------------->
 <section class="registerSection flexColCenter">
     <h1>Connecte toi pour acceder à ton espace</span></h1>    
-    
-    <form action="" class=" formRegister flexColCenter" method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+        <h5><?= SessionFlash::display('message') ?? ''?></h5>
+    <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" class=" formRegister flexColCenter" method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">
     
         <label for="userName">Adresse Email ou nom d'utilisateur</label>
-        <input type="text" 
+        <input type="email" 
         required
-        name="userName" 
-        id="userName" 
+        name="mail" 
+        id="mail" 
         class="field" 
-        placeholder="<?= $error['email'] ?? '' ?>"
-        value="<?= (!isset($error['email']) && isset($email)) ? $email : ''?>"
+        placeholder="<?= $error['mail'] ?? '' ?>"
+        value="<?= (!isset($error['mail']) && isset($mmail)) ? $mail : ''?>"
         >
         
 

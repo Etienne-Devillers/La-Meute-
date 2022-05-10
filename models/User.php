@@ -260,4 +260,25 @@ public static function isUsernameExists(string $username): bool
             return $ex;
         }
     }
+
+    public static function login(string $mail) {
+
+        $sql = 'SELECT * FROM `users` WHERE `mail` = :mail ;';
+
+        try {
+
+            $pdo = Database::dbConnect();
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':mail', $mail, PDO::PARAM_STR);
+            $sth->execute();
+
+            if ($sth ===false) {
+                throw new PDOException();
+            }
+            return $sth->fetch();
+
+        } catch (\PDOException $ex) {
+        return $ex;
+        }
+    }
 }

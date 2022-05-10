@@ -23,10 +23,19 @@
                 <li><a href="https://www.google.com">Qui sommes nous</a></li>
                 <li><a href="https://www.google.com">FAQ</a></li>
             </ul>
+
+        <?php   if (empty($_SESSION['user'])) { ?>
             <ul class="loggingInputs">
                 <li><a href="/inscription">S'inscrire</a></li>
                 <li><a href="/connexion" class="connectBtn">Se connecter</a></li>
             </ul>
+        <?php } else { ?> 
+            <ul class="connectedNav">
+                <li><a href=""><span><?=$_SESSION['user']->username?></span><img class="navImg" src="/assets/img/circle-user-solid.svg" alt="pictogramme qui représente un portrait"></a></li>
+                <li><a href="/controllers/logout-controller.php">Déconnexion</a></li>
+            </ul>
+        <?php } ?>
+            
         </div>
     </nav>
 </header>

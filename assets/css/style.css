@@ -126,6 +126,22 @@ a {
     margin-right: 0.5em;
 }
 
+.connectedNav li a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.connectedNav {
+    margin-right: 25px !important;
+}
+
+.navImg {
+    width: 55px;
+    padding: 0 5px;
+    filter: invert(53%) sepia(61%) saturate(593%) hue-rotate(76deg) brightness(87%) contrast(91%);
+}
+
 /*---------- Boutons de connexion/Inscription----------- */
 
 .loggingInputs {
@@ -134,7 +150,7 @@ a {
 }
 
 .connectBtn {
-    background: linear-gradient(120deg, rgba(40, 167, 55, 1) 0%, rgba(10, 255, 2, 1) 100%);
+    background: linear-gradient(120deg, #28a737 0%, #0aff02 100%);
     padding: 0.2em 0.5em;
     border-radius: 15px;
 
@@ -608,6 +624,7 @@ a {
     align-items: center;
     margin: 0.5em 0.5em;
 }
+
 .topRightCornerComment {
     display: flex;
     justify-content: center;

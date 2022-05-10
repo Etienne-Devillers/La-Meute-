@@ -1,0 +1,52 @@
+#profil {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.separator{
+    width: 95%;
+    margin: auto;
+    height: 1px;
+    color: white;
+    
+}
+.profilHeader>.categoryTitle{
+    border: solid 0px;
+}
+.categoryTitle {
+    font-weight: 800;
+    width: 95%;
+    margin: auto;
+    border-bottom: 1px solid grey;
+    font-size: 48px;
+    color: rgba(40, 167, 55, 1);
+}
+
+.positionProfil {
+    width: 90%;
+    margin-left: 5vw;
+    margin-top: 3vh;
+    background-color: #2A3C44;
+    border-radius: 15px;
+
+}
+
+.profilHeader {
+    margin-top: 20vh;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    color: white;
+
+}
+
+.coachingContainer {
+    height: 35vh;
+}
+
+.profilContainer{
+    height: 35vh;
+}
