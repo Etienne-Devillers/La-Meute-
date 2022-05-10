@@ -50,3 +50,30 @@
 .profilContainer{
     height: 35vh;
 }
+
+.personnalInformationContainer{
+    width: 95%;
+    margin: 15px auto;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftSideInfo img{
+    width: 150px;
+}
+.leftSideInfo{
+    width: 40%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.rightSideInfo{
+    width: 60%;
+}
+.formInfo{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
