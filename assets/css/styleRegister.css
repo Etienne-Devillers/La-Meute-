@@ -2,8 +2,6 @@ body {
 background-color: #1D2029;
 background-image: url(../img/Background2.png);
 background-repeat: no-repeat;
-
-
 }
 
 .root{
@@ -23,6 +21,7 @@ background-repeat: no-repeat;
     color: white;
     margin-top: 0;
     margin-bottom: 2rem;
+    padding: 0 2.3em;
 }
 
 .greenWord {

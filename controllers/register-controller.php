@@ -2,6 +2,7 @@
 
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../utils/config.php');
+require_once dirname(__FILE__) . '/../helpers/jwt.php';
 require_once(dirname(__FILE__) . '/../models/User.php');
 
 //Import PHPMailer classes into the global namespace
@@ -77,20 +78,30 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         if (empty($error)) {
             $user = new User($mail, $pwd, $username);
             $user->add();
-            SessionFlash::create('Votre compte a bien été créé.');
+            SessionFlash::create('Votre compte a bien été créé, un mail vous a été envoyé afin de valider votre compte.');
+
+            $payload = ['mail'=>$mail, 'exp'=>(time() + 600)];
+            $jwt = JWT::generate_jwt($payload);
+
+            $link = $_SERVER['REQUEST_SCHEME']. '://' .$_SERVER['HTTP_HOST'].'/controllers/validateUser-controller.php?jwt='.$jwt;
+            $message = '
+            Veuillez cliquer sur le lien suivant:<br>
+            <a href="'.$link.'">Activation</a>
+            ';
+
 
             $mailer = new PHPMailer(true);
 
             
                 //Server settings
                 $mailer->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-                $mailer->isSMTP();                                            //Send using SMTP
+                // $mailer->isSMTP();                                            //Send using SMTP
                 $mailer->Host       = 'mail.la-meute.etienne-devillers.fr';                     //Set the SMTP server to send through
                 $mailer->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mailer->Username   = 'admin@la-meute.etienne-devillers.fr';                     //SMTP username
                 $mailer->Password   = 'vuR;K&V2;DRs';                               //SMTP password
-                $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
-                $mailer->Port       = 26;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                $mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mailer->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
                 //Recipients
                 $mailer->setFrom('admin@la-meute.etienne-devillers.fr', 'Administrateur');
@@ -99,12 +110,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             
                 //Content
                 $mailer->isHTML(true);                                  //Set email format to HTML
-                $mailer->Subject = 'Here is the subject';
-                $mailer->Body    = 'This is the HTML message body <b>in bold!</b>';
-                $mailer->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                $mailer->Subject = 'Validation d\'adresse mail';
+                $mailer->Body    = $message;
+            
             
                 $mailer->send();
-                echo 'Message has been sent';
+                
             
 
 

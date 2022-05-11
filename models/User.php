@@ -281,4 +281,17 @@ public static function isUsernameExists(string $username): bool
         return $ex;
         }
     }
+
+    public static function validate($mail) {
+
+        $sql = 'UPDATE `users`
+                SET `validated_at` =:validated_at
+                WHERE `mail` = :mail ;' ;
+
+        $sth = Database::dbconnect()->prepare($sql);
+        $sth->bindValue(':validated_at', date('Y-m-d H:i:s'));
+        $sth->bindValue(':mail', $mail);
+        return $sth->execute();
+
+    }
 }
