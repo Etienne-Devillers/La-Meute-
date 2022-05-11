@@ -5,16 +5,18 @@
     min-height: 100vh;
 }
 
-.separator{
+.separator {
     width: 95%;
     margin: auto;
     height: 1px;
     color: white;
-    
+
 }
-.profilHeader>.categoryTitle{
+
+.profilHeader>.categoryTitle {
     border: solid 0px;
 }
+
 .categoryTitle {
     font-weight: 800;
     width: 95%;
@@ -35,33 +37,39 @@
 
 .profilHeader {
     margin-top: 20vh;
-    height: 10vh;
+    min-height: 10vh;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     color: white;
 
+}
+
+.profilHeader span{
+    font-size: 24px;
 }
 
 .coachingContainer {
     height: 35vh;
 }
 
-.profilContainer{
+.profilContainer {
     min-height: 35vh;
 }
 
-.personnalInformationContainer{
+.personnalInformationContainer {
     width: 95%;
     margin: 15px auto;
     display: flex;
     flex-direction: row;
 }
 
-.leftSideInfo img{
+.leftSideInfo img {
     width: 180px;
 }
-.leftSideInfo{
+
+.leftSideInfo {
     width: 50%;
     display: flex;
     align-items: center;
@@ -69,28 +77,47 @@
     flex-direction: column;
     color: white;
 }
-.leftSideInfo span {
+.errorMsg{
+    color: red;
+}
+.leftSideInfo .updateProfil {
     background: linear-gradient(120deg, #28a737 0%, #0aff02 100%);
     padding: 0.2em 0.5em;
     border-radius: 15px;
     border: 0;
     cursor: pointer;
+    margin: 10px 10px;
 }
 
-.rightSideInfo{
+.leftSideInfo .deleteProfil {
+    background: linear-gradient(120deg, #ff3333 0%, #ff0202 100%);
+    padding: 0.2em 0.5em;
+    border-radius: 15px;
+    border: 0;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+
+.btnProfilContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.rightSideInfo {
     width: 50%;
 }
-.formInfo{
+
+.formInfo {
     display: flex;
     flex-direction: column;
     color: white;
 }
 
-.formInfo label{
+.formInfo label {
     margin-top: 1em;
     font-size: 24px;
 }
-.formField{
+
+.formField {
     margin-top: 10px;
     height: 25px;
     width: 60%;
@@ -100,8 +127,22 @@
     border-bottom: solid 1px grey;
 }
 
-.formField::placeholder{
+.formField::placeholder {
     color: white;
     font-size: 18px;
-    
+
+}
+
+input[type="text"]
+{
+    font-size:18px;
+}
+
+.fieldActive {
+    background-color: #47484E;
+}
+
+.submitBtn {
+    margin-top: 1.5em;
+    display: none;
 }

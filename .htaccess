@@ -15,11 +15,11 @@ RewriteRule ^connexion$ /controllers/login-controller.php [L]
 # # /profil
 RewriteRule ^profil$ /controllers/profil-controller.php [L]
 
-# # /list rdv
-#  RewriteRule ^list-appointments$ /controllers/appointments/list-appointments-controller.php [L]
+# # /admin rdv
+  RewriteRule ^admin$ /controllers/admin/admin-controller.php [L]
 
 # # /detail rdv
-#  RewriteRule ^detail-appointment$ /controllers/appointments/detail-appointment-controller.php [L]
+  RewriteRule ^admin-list-user$ /controllers/admin/admin-list-user-controller.php [L]
 
 # # /profil?id=N
 # RewriteCond %{QUERY_STRING} (?:^|&)id=(\d+)

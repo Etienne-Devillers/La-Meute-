@@ -2,7 +2,7 @@
 
 require_once(dirname(__FILE__) . '/../utils/init.php');
 require_once(dirname(__FILE__) . '/../utils/config.php');
-require_once dirname(__FILE__) . '/../helpers/jwt.php';
+require_once(dirname(__FILE__) . '/../helpers/jwt.php');
 require_once(dirname(__FILE__) . '/../models/User.php');
 
 //Import PHPMailer classes into the global namespace

@@ -265,12 +265,24 @@ public static function isUsernameExists(string $username): bool
 
         $sql = 'SELECT * FROM `users` WHERE `mail` = :mail ;';
 
+        $sql2 = 'UPDATE `users`
+        SET `connected_at` = :connected_at
+        WHERE `mail` = :mail ;';
+
+
         try {
 
             $pdo = Database::dbConnect();
+
             $sth = $pdo->prepare($sql);
+
+            $sth2 = $pdo->prepare($sql2);
+
             $sth->bindValue(':mail', $mail, PDO::PARAM_STR);
+            $sth2->bindValue(':mail', $mail, PDO::PARAM_STR);
+            $sth2->bindValue(':connected_at', date('Y-m-d H:i:s'));
             $sth->execute();
+            $sth2->execute();
 
             if ($sth ===false) {
                 throw new PDOException();
@@ -293,5 +305,25 @@ public static function isUsernameExists(string $username): bool
         $sth->bindValue(':mail', $mail);
         return $sth->execute();
 
+    }
+
+    public static function update($username, $mail, $lastname, $firstname, $phoneNumber) {
+
+        $sql = 'UPDATE `users`
+                SET `username` = :username,
+                    `lastname` = :lastname,
+                    `firstname` = :firstname,
+                    `phonenumber` = :phonenumber
+                WHERE `mail` = :mail;' ;
+
+        $sth = Database::dbConnect()->prepare($sql);
+
+        $sth->bindValue(':username', $username);
+        $sth->bindValue(':lastname', $lastname);
+        $sth->bindValue(':firstname', $firstname);
+        $sth->bindValue(':phonenumber', $phoneNumber);
+        $sth->bindValue(':mail', $mail);
+
+        return $sth->execute();
     }
 }

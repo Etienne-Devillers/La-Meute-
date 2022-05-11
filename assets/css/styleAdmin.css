@@ -1,0 +1,29 @@
+.adminListUserContainer{
+    width: 95vw;
+    margin-top: 15vh;
+    margin-left: 2.5vw ;
+    background-color: aqua;
+    display: flex;
+  flex-direction: column;
+}
+
+.returnLink{
+    font-size: 32px;
+}
+
+.adminChoice{
+    width: 95vw;
+    margin-top: 15vh;
+    margin-left: 2.5vw ;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminChoice button{
+    padding: 10vh 10vh;
+    margin: 2vh 2vh;
+    cursor: pointer;
+
+}
