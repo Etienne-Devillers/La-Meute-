@@ -169,6 +169,78 @@ class User{
         }
 }
 
+public static function getAll(string $search='', int $limit=25, int $offset=0): array
+    {
+        
+        try {
+            // Si la limite n'est pas définie, il faut tout lister
+            $sql = "SELECT `id`,
+                    `lastname`,
+                    `firstname`,
+                    `mail`,
+                    `username`,
+                    `phonenumber`,
+                    DATE_FORMAT(`registered_at`, '%d-%m-%Y') AS `registered_at`,
+                    `validated_at`,
+                    DATE_FORMAT(`connected_at`, '%d-%m-%Y') AS `connected_at`
+                    FROM `users` 
+                    WHERE `archivated_at` IS  NULL
+                    AND (`lastname` LIKE :search
+                    OR `firstname` LIKE :search
+                    OR `mail` LIKE :search
+                    OR `username` LIKE :search
+                    OR `phonenumber` LIKE :search) 
+                    " ;
+        
+        if(!is_null($limit)){
+                $sql .= ' LIMIT :limit OFFSET :offset';
+        }
+            
+            $sql .= ';';
+
+            $sth = Database::dbConnect()->prepare($sql);
+
+
+            $sth->bindValue(':search','%'.$search.'%',PDO::PARAM_STR);
+
+            if(!is_null($limit)){
+                $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
+                $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
+            }
+
+            $result = $sth->execute();
+
+            if($result === false){
+                throw new PDOException();
+            } else {
+                return($sth->fetchAll());
+            }
+            
+        }
+        catch(PDOException $ex){
+            return [];
+        }
+
+
+        // try {
+
+        //     // On créé la requête
+        //     $sql = 'SELECT * FROM `patients`';
+
+        //     // On exécute la requête
+        //     $sth = Database::dbConnect()->query($sql);
+
+        //     if ($sth === false) {
+        //         throw new PDOException();
+        //     } else {
+        //         return $sth->fetchAll();
+        //     }
+        // } catch (PDOException $ex) {
+        //     return [];
+        // }
+
+    }
+
 public static function isMailExists(string $mail): bool
     {
         try {
@@ -263,7 +335,7 @@ public static function isUsernameExists(string $username): bool
 
     public static function login(string $mail) {
 
-        $sql = 'SELECT * FROM `users` WHERE `mail` = :mail ;';
+        $sql = "SELECT * FROM `users` WHERE `mail` = :mail AND `archivated_at` != NULL; ";
 
         $sql2 = 'UPDATE `users`
         SET `connected_at` = :connected_at
@@ -325,5 +397,51 @@ public static function isUsernameExists(string $username): bool
         $sth->bindValue(':mail', $mail);
 
         return $sth->execute();
+    }
+
+    public static function delete($id) { // On ne supprime pas mais on archive simplement le compte
+
+        $sql = 'UPDATE `users`
+                SET `archivated_at` =:archivated_at
+                WHERE `id` = :id ;' ;
+
+        $sth = Database::dbconnect()->prepare($sql);
+        $sth->bindValue(':archivated_at', date('Y-m-d H:i:s'));
+        $sth->bindValue(':id', $id);
+        return $sth->execute();
+
+    }
+
+    public static function count(string $search): int{
+
+        try {
+
+            $sql = 'SELECT COUNT(`id`) as `userNum` FROM `users`
+                    WHERE `archivated_at` IS  NULL
+                    AND (`lastname` LIKE :search
+                    OR `firstname` LIKE :search
+                    OR `mail` LIKE :search
+                    OR `username` LIKE :search
+                    OR `phonenumber` LIKE :search) ';
+
+            $sth = Database::dbconnect()->prepare($sql);
+            $sth->bindValue(':search','%'.$search.'%',PDO::PARAM_STR);
+            $result = $sth->execute();
+            if($result === false){
+                throw new PDOException();
+            } else {
+                $count = $sth->fetchColumn();
+                if($count === false){
+                    return 0;
+                } else {
+                    return $count;
+                }
+            }
+        
+        } catch (\PDOException $ex) {
+            return 0;
+        }
+        
+
     }
 }

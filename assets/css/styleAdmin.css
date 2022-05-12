@@ -2,7 +2,7 @@
     width: 95vw;
     margin-top: 15vh;
     margin-left: 2.5vw ;
-    background-color: aqua;
+
     display: flex;
   flex-direction: column;
 }
@@ -11,11 +11,14 @@
     font-size: 32px;
 }
 
+.userListTitle{
+    color: white;
+}
 .adminChoice{
     width: 95vw;
     margin-top: 15vh;
     margin-left: 2.5vw ;
-    background-color: aqua;
+    background-color: rgba(0, 255, 255, 0.067);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,3 +30,31 @@
     cursor: pointer;
 
 }
+
+.optionField{
+    color: white;
+    margin: 10px 0;
+}
+
+/*************************** Table ***************************/
+table{
+    color: white;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background-color: rgb(102, 98, 98) ;
+}
+
+td, th{
+    border-left: solid 1px #ECF0F1;
+    border-right: solid 1px #ECF0F1;
+    height: 35px;
+    padding-left: 10px;
+}
+
+tr:nth-of-type(even) {
+	background-color: #43464656;
+}
+
