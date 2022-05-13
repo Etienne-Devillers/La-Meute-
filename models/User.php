@@ -174,7 +174,8 @@ public static function getAll(string $search='', int $limit=25, int $offset=0): 
         
         try {
             // Si la limite n'est pas définie, il faut tout lister
-            $sql = "SELECT `id`,
+            $sql = "SELECT `users`.`id`,
+                    `roles`.`role`,
                     `lastname`,
                     `firstname`,
                     `mail`,
@@ -183,11 +184,15 @@ public static function getAll(string $search='', int $limit=25, int $offset=0): 
                     DATE_FORMAT(`registered_at`, '%d-%m-%Y') AS `registered_at`,
                     `validated_at`,
                     DATE_FORMAT(`connected_at`, '%d-%m-%Y') AS `connected_at`
-                    FROM `users` 
-                    WHERE `archivated_at` IS  NULL
-                    AND (`lastname` LIKE :search
+                    FROM `users`, `roles` 
+                    WHERE (`archivated_at` IS  NULL)
+                    AND (`users`.`id_role` = `roles`.`id`)
+                    AND
+                    (`lastname` LIKE :search
                     OR `firstname` LIKE :search
+                    OR `roles`.`role` LIKE :search
                     OR `mail` LIKE :search
+                    OR `registered_at` LIKE :search
                     OR `username` LIKE :search
                     OR `phonenumber` LIKE :search) 
                     " ;
@@ -278,7 +283,18 @@ public static function isUsernameExists(string $username): bool
         try {
             $pdo = Database::dbConnect();
 
-            $sql = 'SELECT * FROM `users` WHERE `mail` = :mail ;';
+            $sql = "SELECT `users`.`id`,
+            `users`.`id_role`,
+            `roles`.`role`,
+            `lastname`,
+            `firstname`,
+            `mail`,
+            `username`,
+            `phonenumber`,
+            DATE_FORMAT(`registered_at`, '%d-%m-%Y à %H:%i') AS `registered_at`,
+            DATE_FORMAT(`connected_at`, '%d-%m-%Y à %H:%i') AS `connected_at`, 
+            DATE_FORMAT(`validated_at`, '%d-%m-%Y à %H:%i') AS `validated_at` 
+            FROM `users`, `roles` WHERE `mail` = :mail AND `users`.`id_role` = `roles`.`id` ;";
 
             $sth = $pdo->prepare($sql);
 
@@ -416,12 +432,15 @@ public static function isUsernameExists(string $username): bool
 
         try {
 
-            $sql = 'SELECT COUNT(`id`) as `userNum` FROM `users`
+            $sql = 'SELECT COUNT(`users`.`id`) FROM `users`, `roles`
                     WHERE `archivated_at` IS  NULL
+                    AND (`users`.`id_role` = `roles`.`id`)
                     AND (`lastname` LIKE :search
                     OR `firstname` LIKE :search
                     OR `mail` LIKE :search
+                    OR `roles`.`role` LIKE :search
                     OR `username` LIKE :search
+                    OR `registered_at` LIKE :search
                     OR `phonenumber` LIKE :search) ';
 
             $sth = Database::dbconnect()->prepare($sql);

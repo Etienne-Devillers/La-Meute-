@@ -5,17 +5,21 @@ require_once(dirname(__FILE__) . '/../../utils/config.php');
 require_once(dirname(__FILE__) . '/../../helpers/jwt.php');
 require_once(dirname(__FILE__) . '/../../models/User.php');
 
-
 if ($_SESSION['user']->id_roles != 1) {
     header('location: /accueil');
     exit;
 
 } else {
 
-    $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+$mail = trim(filter_input(INPUT_GET, 'mail', FILTER_SANITIZE_EMAIL));
 
-    User::delete($id);
-
+$userProfil = User::getByMail($mail);
+if ($userProfil instanceof PDOException) {
     header('location: /controllers/admin/admin-list-user-controller.php?userPerPage=25&search=');
-    exit;
+exit;}
+
+include(dirname(__FILE__).'/../../views/templates/header.php');
+include(dirname(__FILE__).'/../../views/adminShowProfil.php');
+include(dirname(__FILE__).'/../../views/templates/footer.php'); 
+
 }

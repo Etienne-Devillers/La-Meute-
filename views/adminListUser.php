@@ -1,7 +1,7 @@
 
 <section class="adminListUserContainer">
 
-<a href="<?=$_SERVER['HTTP_REFERER'] ?? '/admin'?>" class="returnLink">&larr; Retour</a>
+<span><a href="<?=$_SERVER['HTTP_REFERER'] ?? '/admin'?>" class="returnLink">&larr; Retour</a></span>
 <h1 class="userListTitle">Liste des utilisateurs</h1>
 
 <form class="optionField" action="<?=$_SERVER['PHP_SELF']?>"> 
@@ -12,26 +12,27 @@
         <option value="75">75</option>
     </select>
 
-    <?php if ($pages > 1) { ?>
-
-        <a href="#">&laquo;</a>
-
+    <input type="text" name="search"> 
+    <button type="submit">Chercher</button>
+    <span class="pageSelector">
+        <?php if ($pages > 1) { ?>
+        <a href="/controllers/admin/admin-list-user-controller.php?userPerPage=<?=$perPage?>&search=<?=$search?>&page=<?=($currentPage>1)?$currentPage-1:$currentPage;?>">&laquo;</a>
         <?php for ($i=1; $i <= $pages; $i++) { ?> 
 
-                <a href="#" <?= ($i == $pages)? 'class="active" ':'';?>> <?=$i?> </a>
+        <a href="/controllers/admin/admin-list-user-controller.php?userPerPage=<?=$perPage?>&search=<?=$search?>&page=<?=$i?>"<?= ($i == $currentPage)? 'class="actualPage" ':'';?>> <?=$i?> </a>
 
         <?php } ?>
 
-                <a href="#">&raquo;</a>
+        <a href="/controllers/admin/admin-list-user-controller.php?userPerPage=<?=$perPage?>&search=<?=$search?>&page=<?=($currentPage<$pages)?$currentPage+1:$currentPage;?>">&raquo;</a>
 
-    <?php } ?>
-
-    <input type="text" name="search"> 
-    <button type="submit">Chercher</button></form>
+        <?php } ?>
+    </span>
+    </form>
 <table>
     <thead> 
         <tr>
             <th>id</th>
+            <th>role</th>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Mail</th>
@@ -49,6 +50,7 @@
 
             <tr>
                 <td> <?=$value->id?> </td>
+                <td> <?=$value->role?> </td>
                 <td> <?=$value->lastname?> </td>
                 <td> <?=$value->firstname?> </td>
                 <td> <?=$value->mail?> </td>
@@ -57,8 +59,8 @@
                 <td> <?=$value->registered_at?> </td>
                 <td> <?=($value->validated_at !== null) ? 'Validé': '---';?> </td>
                 <td> <?=$value->connected_at?> </td>
-                <td><button>Voir</button> </td>
-                <td><a href="/controllers/admin/delete-user-controller.php?id=<?=$value->id?>"><button>supprimer</button></a> </td>
+                <td><a href="/controllers/admin/admin-show-profil-controller.php?mail=<?=$value->mail?>"><button>Voir</button></a> </td>
+                <td><a href="/controllers/admin/delete-user-controller.php?id=<?=$value->id?>"><button>Supprimer</button></a> </td>
             </tr>
         
         <?php } ?>

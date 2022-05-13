@@ -15,11 +15,11 @@ if ($_SESSION['user']->id_roles != 1) {
     if (!empty($_GET)) {
         $search = trim(filter_input(INPUT_GET, 'search', FILTER_SANITIZE_SPECIAL_CHARS));
         $perPage = intval(filter_input(INPUT_GET, 'userPerPage', FILTER_SANITIZE_NUMBER_INT));
-
+        
         $userNum = User::count($search);
         $pages = ceil($userNum / $perPage);
 
-        $currentPage = intval(filter_input(INPUT_GET, 'currentPage', FILTER_SANITIZE_NUMBER_INT));
+        $currentPage = intval(filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT));
 
         if($currentPage <= 0 || $currentPage > $pages){
             $currentPage = 1;
@@ -27,7 +27,7 @@ if ($_SESSION['user']->id_roles != 1) {
         $offset = $perPage*($currentPage-1);
 
 
-        $userList = User::getAll($search, $perPage,$offset);
+        $userList = User::getAll($search, $perPage, $offset);
     }   else {
         $userList = User::getAll();
     }

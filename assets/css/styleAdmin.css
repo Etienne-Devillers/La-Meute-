@@ -4,7 +4,7 @@
     margin-left: 2.5vw ;
 
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .returnLink{
@@ -36,6 +36,21 @@
     margin: 10px 0;
 }
 
+.pageSelector a{
+    font-size: 24px;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.actualPage{
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+.pageSelector a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
 /*************************** Table ***************************/
 table{
     color: white;
@@ -56,5 +71,13 @@ td, th{
 
 tr:nth-of-type(even) {
 	background-color: #43464656;
+}
+
+/* Profil des utilisteurs */
+
+
+.dateTimeInfo{
+margin: 1em 0px;
+font-size: 18px;
 }
 
