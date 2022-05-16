@@ -120,7 +120,15 @@ header{
     transition: 0.2s;
 }
 
+.adminImg{
+    width: 40px;
+    margin-right: 10px;
+    filter: invert(95%) sepia(82%) saturate(2%) hue-rotate(312deg) brightness(106%) contrast(101%)
+}
 
+.resetPwd{
+    color:#28a737;
+}
 
 .navBarRightSide .loggingInputs {
     margin-right: 0.5em;

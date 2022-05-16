@@ -17,6 +17,7 @@
                 <div>
                     <img src="/assets/img/circle-user-solid.svg" alt="">
                     <div>inscris depuis le 01/10/1008</div>
+                    <div><a href="/changer-mot-de-passe" class="resetPwd">Changer le mot de passe</a></div>
                 </div>
                 <div class="btnProfilContainer">
                     <span class="deleteProfil">Supprimer le compte</span>

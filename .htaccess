@@ -21,6 +21,9 @@ RewriteRule ^profil$ /controllers/profil-controller.php [L]
 # # /detail rdv
   RewriteRule ^admin-list-user$ /controllers/admin/admin-list-user-controller.php [L]
 
+# # /modif PWD
+  RewriteRule ^changer-mot-de-passe$ /controllers/change-pwd-controller.php [L]
+
 # # /profil?id=N
 # RewriteCond %{QUERY_STRING} (?:^|&)id=(\d+)
 # RewriteRule ^profil$ /controllers/profil-patient-controller.php [L]
