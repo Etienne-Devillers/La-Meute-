@@ -48,7 +48,7 @@
                     
                     break;
             }}?>
-            <li><a href="/profil"><span><?=$_SESSION['user']->username?></span><img class="navImg"
+            <li><a href="/profil"><span><?=$_SESSION['user']->username ?? ''?></span><img class="navImg"
                             src="/assets/img/circle-user-solid.svg" alt="pictogramme qui représente un portrait"></a>
                 </li>
                 <li><a href="/controllers/logout-controller.php">Déconnexion</a></li>

@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if (empty($error)) {
         $user = User::login($mail);
-
         if (empty($user)) {
 
             $error['mail'] = 'le mail saisi n\est pas valide.';
