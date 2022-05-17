@@ -78,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         if (empty($error)) {
             $user = new User($mail, $pwd, $username);
             $user->add();
+            
             SessionFlash::create('Votre compte a bien été créé, un mail vous a été envoyé afin de valider votre compte.');
 
             $payload = ['mail'=>$mail, 'exp'=>(time() + 600)];

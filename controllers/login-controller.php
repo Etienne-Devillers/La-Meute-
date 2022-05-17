@@ -3,6 +3,7 @@ require_once(dirname(__FILE__).'/../utils/init.php');
 require_once(dirname(__FILE__).'/../utils/config.php');
 require_once(dirname(__FILE__).'/../models/User.php');
 
+
 if (!empty($_SESSION['user'])) {
     header('location: /accueil');
     exit;
@@ -28,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $user = User::login($mail);
         if (empty($user)) {
 
-            $error['mail'] = 'le mail saisi n\est pas valide.';
+            $error['mail'] = 'le mail saisi n\'est pas valide.';
 
         } else {
 

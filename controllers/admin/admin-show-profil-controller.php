@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/../../utils/config.php');
 require_once(dirname(__FILE__) . '/../../helpers/jwt.php');
 require_once(dirname(__FILE__) . '/../../models/User.php');
 
-if ($_SESSION['user']->id_roles != 1) {
+if ($_SESSION['user']->id_role != 1) {
     header('location: /accueil');
     exit;
 

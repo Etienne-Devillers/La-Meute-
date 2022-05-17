@@ -55,3 +55,5 @@
         <input type="submit" value="S'inscrire" class="" id="validForm">
     </form>
 </section>
+
+<script src="/assets/js/form.js"></script>

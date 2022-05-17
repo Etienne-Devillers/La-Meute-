@@ -149,8 +149,8 @@ class User{
 
         try {
             //  requête avec des marqueurs nominatifs
-            $sql = 'INSERT INTO `users` (`mail`, `pwd`, `username`, `id_roles`) 
-                VALUES (:mail, :pwd, :username, :id_roles);';
+            $sql = 'INSERT INTO `users` (`mail`, `pwd`, `username`, `id_role`) 
+                VALUES (:mail, :pwd, :username, :id_role);';
 
             // On prépare la requête
 
@@ -159,7 +159,7 @@ class User{
             $sth->bindValue(':mail', $this->getMail(), PDO::PARAM_STR);
             $sth->bindValue(':pwd', $this->getPwd(), PDO::PARAM_STR);
             $sth->bindValue(':username', $this->getUsername(), PDO::PARAM_STR);
-            $sth->bindValue(':id_roles', $this->getIdRoles(), PDO::PARAM_INT);
+            $sth->bindValue(':id_role', $this->getIdRoles(), PDO::PARAM_INT);
             
             // On retourne directement true si la requête s'est bien exécutée ou false dans le cas contraire
             return $sth->execute();
@@ -351,7 +351,7 @@ public static function isUsernameExists(string $username): bool
 
     public static function login(string $mail) {
 
-        $sql = "SELECT * FROM `users` WHERE `mail` = :mail AND `archivated_at` != NULL; ";
+        $sql = "SELECT * FROM `users` WHERE `mail` = :mail AND `archivated_at` IS NULL ; ";
 
         $sql2 = 'UPDATE `users`
         SET `connected_at` = :connected_at
@@ -372,7 +372,8 @@ public static function isUsernameExists(string $username): bool
             $sth->execute();
             $sth2->execute();
 
-            if ($sth ===false) {
+            if ($sth === false) {
+                
                 throw new PDOException();
             }
             return $sth->fetch();
@@ -461,6 +462,32 @@ public static function isUsernameExists(string $username): bool
             return 0;
         }
         
+
+    }
+
+    public static function updatePwd(string $mail, string $pwd):bool {
+        try {
+
+            $sql = 'UPDATE `users`
+                SET `pwd` = :pwd
+                WHERE `mail` = :mail ;' ;
+
+            $sth = Database::dbconnect()->prepare($sql);
+            $sth->bindValue(':pwd', $pwd, PDO::PARAM_STR);
+            $sth->bindValue(':mail', $mail, PDO::PARAM_STR);
+
+            $result = $sth->execute();
+
+            if($result === false){
+                throw new PDOException();
+            } else {
+                
+                return true;
+            }
+        
+        } catch (\PDOException $ex) {
+            return false;
+        }
 
     }
 }

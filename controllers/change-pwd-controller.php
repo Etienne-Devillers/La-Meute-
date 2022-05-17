@@ -41,17 +41,22 @@ if (empty($_POST)) {
         $error['pwd'] = 'Remplissez les deux champs.' ;
     }
 
-    if ($newPwd == $oldPWd) {
-        $error
+    if ($oldPwd == $newPwd) {
+        $error['pwd'] = 'Vous avez saisi le même mot de passe.' ;
     }
+
 
     if (!empty($error)) {
         include(dirname(__FILE__).'/../views/templates/header.php');
         include(dirname(__FILE__).'/../views/changePwd.php');
         include(dirname(__FILE__).'/../views/templates/footer.php');
     } else {
-        session_destroy();
-        header('location: /accueil');
+
+        SessionFlash::create('Votre mot de passe a bien été modifié. Connectez vous à nouveau.');
+        $newPwd = password_hash($newPwd, PASSWORD_DEFAULT);
+        User::updatePwd($_SESSION['user']->mail, $newPwd);
+        unset($_SESSION['user']);
+        header('location: /controllers/login-controller.php');
         exit;
     }
 
