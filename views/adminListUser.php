@@ -60,7 +60,7 @@
                 <td> <?=($value->validated_at !== null) ? 'Validé': '---';?> </td>
                 <td> <?=$value->connected_at?> </td>
                 <td><a href="/controllers/admin/admin-show-profil-controller.php?mail=<?=$value->mail?>"><button>Voir</button></a> </td>
-                <td><a href="/controllers/admin/delete-user-controller.php?id=<?=$value->id?>"><button>Supprimer</button></a> </td>
+                <td><a href="/controllers/admin/delete-user-controller.php?id=<?=$value->id?>"><button>Archiver</button></a> </td>
             </tr>
         
         <?php } ?>

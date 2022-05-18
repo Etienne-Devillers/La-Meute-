@@ -5,9 +5,9 @@
     </div>
     <div class="sideNavBar">
         <ul class="sideNavBarList">
-            <li><a href="https://www.google.com">Comment ça marche</a></li>
+            <li><a href="/comment-ca-marche">Comment ça marche</a></li>
             <li><a href="https://www.google.com">Qui sommes nous</a></li>
-            <li><a href="https://www.google.com">FAQ</a></li>
+            <li><a href="/foire-aux-questions">FAQ</a></li>
         </ul>
     </div>
     <nav class="navBar">

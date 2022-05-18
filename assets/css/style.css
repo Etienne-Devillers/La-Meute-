@@ -29,10 +29,11 @@ a {
 /*----------------------------Section NavBar----------------------------*/
 /************************************************************************/
 
-header{
+header {
     position: absolute;
     top: 0;
 }
+
 .navBar {
     display: flex;
     position: fixed;
@@ -120,14 +121,14 @@ header{
     transition: 0.2s;
 }
 
-.adminImg{
+.adminImg {
     width: 40px;
     margin-right: 10px;
     filter: invert(95%) sepia(82%) saturate(2%) hue-rotate(312deg) brightness(106%) contrast(101%)
 }
 
-.resetPwd{
-    color:#28a737;
+.resetPwd {
+    color: #28a737;
 }
 
 .navBarRightSide .loggingInputs {
@@ -254,9 +255,7 @@ header{
 .landingPage {
     position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
-
     width: 100vw;
     height: 100vh;
     background-image: url(../img/hunt-showdown-wallPaper.jpg);
@@ -270,6 +269,7 @@ header{
 .LandingPageContainer {
     width: 90%;
     margin: auto;
+    margin-top: 12em;
 
 
 }
@@ -674,8 +674,8 @@ header{
 /************************ section becomePro ************************/
 
 
-.becomePro{
-    
+.becomePro {
+
     width: 90vw;
     margin: 0 auto;
     margin-top: 20vh;
@@ -684,77 +684,81 @@ header{
     color: white;
 }
 
-.leftSidePro{
+.leftSidePro {
     width: 33%;
 }
 
-.leftSidePro h5{
+.leftSidePro h5 {
     font-size: 32px;
     margin: 10px 0;
 }
-.leftSidePro img{
+
+.leftSidePro img {
     width: 130px;
     filter: invert(95%) sepia(82%) saturate(2%) hue-rotate(312deg) brightness(106%) contrast(101%);
 }
 
-.leftSideContent{
+.leftSideContent {
     font-size: 24px;
     margin-bottom: 30px;
 }
-.middlePro{
+
+.middlePro {
     width: 33%;
     display: flex;
     align-items: center;
 }
 
-.middlePro img{
+.middlePro img {
     width: 100%;
     transform: rotate(-20deg);
 }
 
-.rigthSidePro{
+.rigthSidePro {
     width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.trophyContainer{
-    
-    width:330px;
+.trophyContainer {
+
+    width: 330px;
     height: 400px;
     border-radius: 10px;
-    background: rgb(42,60,68);
-background: linear-gradient(203deg, rgba(42,60,68,1) 0%, rgba(17,17,17,1) 100%);
+    background: rgb(42, 60, 68);
+    background: linear-gradient(203deg, rgba(42, 60, 68, 1) 0%, rgba(17, 17, 17, 1) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.trophyContainer h5{
+.trophyContainer h5 {
     font-size: 32px;
     margin: 30px 0;
 }
-.trophyContent{
+
+.trophyContent {
     font-size: 24px;
     text-align: center;
     width: 80%;
     line-height: 35px;
 }
-.rigthSidePro img{
+
+.rigthSidePro img {
     width: 150px;
     padding-top: 20px;
     filter: invert(53%) sepia(61%) saturate(593%) hue-rotate(76deg) brightness(87%) contrast(91%);
 }
 
 @media screen and (max-width: 1100px) {
-    
 
-    .middlePro{
+
+    .middlePro {
         display: none;
     }
 
-    .becomePro{
+    .becomePro {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -770,7 +774,7 @@ background: linear-gradient(203deg, rgba(42,60,68,1) 0%, rgba(17,17,17,1) 100%);
 
 /************************ section faq ************************/
 
-.faq{
+.faq {
     margin-top: 20vh;
     width: 100vw;
     display: flex;
@@ -778,27 +782,29 @@ background: linear-gradient(203deg, rgba(42,60,68,1) 0%, rgba(17,17,17,1) 100%);
 }
 
 
-.questionAnswer{
+.questionAnswer {
     display: none;
     color: white;
     border-radius: 10px;
-    background-color: #1D2029;
+    background-color: #2A3C44;
+    margin-top: 1em;
     max-height: 0;
     transition: max-height 0.3s ease-out;
 }
 
-.questionActive, .collapsibleButton:hover {
+
+.collapsibleButton:hover {
     background-color: #2A3C44 !important;
     cursor: pointer;
 }
 
-.question{
+.question {
     position: relative;
     color: white;
     width: 80vw;
     margin: 15px auto;
     background-color: transparent;
-    
+
 }
 
 .collapsibleButton {
@@ -818,15 +824,15 @@ background: linear-gradient(203deg, rgba(42,60,68,1) 0%, rgba(17,17,17,1) 100%);
     top: 0;
     pointer-events: none;
     transform: rotate(0deg);
-    transition: 0.3s linear ;
+    transition: 0.3s linear;
     filter: invert(95%) sepia(82%) saturate(2%) hue-rotate(312deg) brightness(106%) contrast(101%);
 }
 
-.switchButton{
+.switchButton {
     transform: rotate(180deg);
 }
 
-.questionAnswer{
+.questionAnswer {
     padding: 7px 7px;
 }
 
@@ -835,9 +841,13 @@ background: linear-gradient(203deg, rgba(42,60,68,1) 0%, rgba(17,17,17,1) 100%);
 /*******************************************************************/
 /******************* PARTIE REPONSIVE HOME PAGE ********************/
 /*******************************************************************/
-@media screen and (max-width:700px){
-    
-    .LandingPageContainer h2{
+@media screen and (max-width:700px) {
+
+    .LandingPageContainer {
+        margin-top: 8em;
+    }
+
+    .LandingPageContainer h2 {
         font-size: 5em !important;
         text-align: center;
     }
@@ -847,36 +857,49 @@ background: linear-gradient(203deg, rgba(42,60,68,1) 0%, rgba(17,17,17,1) 100%);
         text-align: center;
     }
 
-    .landingPageBottomContainer{
+    .landingPageBottomContainer {
         flex-direction: column;
         align-items: center;
     }
 
-    .arrowAngle{
+    .arrowAngle {
         display: none;
     }
 
-    .commentContainer{
+    .commentContainer {
         flex-direction: column !important;
     }
 
-    .gameCollectionRow{
+    .gameCollectionRow {
         flex-direction: column;
     }
+
     .playLearnImproveContainer {
         font-size: 72px;
     }
 
-    .gameCollectionContainer{
+    .gameCollectionContainer {
         flex-direction: column;
         width: 90vw;
         height: 700px;
     }
 
-    .gameDisplay{
+    .gameDisplay {
         width: 100%;
         background-size: cover;
         margin: 0.5em 0;
         background-position: top;
+    }
+
+    .iconsWhyCoach {
+        font-size: 54px;
+    }
+
+    .leftSidePro{
+        width: 80%;
+    }
+
+    .rigthSidePro{
+        width: 80%;
     }
 }

@@ -1,0 +1,162 @@
+#pickGame {
+    margin-top: 20vh;
+    width: 100vw;
+}
+
+.pickGameHeader {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 48px;
+    justify-content: space-evenly;
+}
+
+.separatorGameSelection {
+    height: 1px;
+    width: 25%;
+    background-color: rgba(10, 255, 2, 1);
+}
+
+.gameSelector {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 10px auto;
+    justify-content: space-evenly;
+}
+
+.gameChoice {
+    background-color: white;
+    border-radius: 15px;
+    height: 60px;
+    width: 310px;
+    margin: 15px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.gameChoice:hover {
+    cursor: pointer;
+}
+
+.gameChoice:after {
+    position: absolute;
+    height: 60px;
+    width: 310px;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.633);
+    content: '';
+}
+
+.gameChoice:hover:after {
+    background-color: transparent;
+}
+
+.selectedGame:after{
+    background-color: transparent;
+}
+
+
+
+#gameImg {
+    width: 100vw;
+    height: 350px;
+    margin-top: 15vh;
+    background-image: url(/assets/img/wow-wallPaper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+
+}
+
+#gameImg::after {
+    position: absolute;
+    width: 100vw;
+    height: 350px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.148);
+    content: '';
+}
+
+.pickCoachHeader {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 48px;
+    justify-content: space-evenly;
+}
+
+#pickCoach {
+    margin-top: 5vh;
+    width: 100vw;
+}
+
+
+.coachSelection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 2vh 0;
+}
+
+.coachBox {
+    width: 450px;
+    margin: 20px 0;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.leftSideCoachBox{
+    height: 100%;
+    width: 40%;
+}
+
+.coachImg{
+    height: 60%;
+    width: 100%;
+    border-radius: 10px 0 0 0 ;
+}
+
+.coachImg img{
+    width: 100%;
+}
+
+.coachBtn{
+    width: 100%;
+    height: 40%;
+    border-radius:  0 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coachBtn button{
+    padding: 10px 20px;
+    background: linear-gradient(120deg, #28a737 0%, #0aff02 100%);
+    border-radius: 10px;
+    border: solid 0px ;
+    color: white;
+    font-size: 24px;
+}
+.rightSideCoachBox{
+    width: 60%;
+}
+.coachName{
+    font-size: 42px;
+    color: rgba(10, 255, 2, 1);
+    font-weight: bold;
+    width: 90%;
+    margin: auto;
+}
+.coachDesc{
+    color: white;
+    font-size: 18px;
+    width: 90%;
+    margin:10% auto;
+}

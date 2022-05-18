@@ -30,6 +30,8 @@ RewriteRule ^profil$ /controllers/profil-controller.php [L]
 # # /faq
   RewriteRule ^foire-aux-questions$ /controllers/FAQ-controller.php [L]
 
+  # # /choix du jeu
+  RewriteRule ^choix-du-jeu$ /controllers/coaching/coaching-game-controller.php [L]
 # # /profil?id=N
 # RewriteCond %{QUERY_STRING} (?:^|&)id=(\d+)
 # RewriteRule ^profil$ /controllers/profil-patient-controller.php [L]

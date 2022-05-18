@@ -17,7 +17,7 @@
                     <div class="connected_at dateTimeInfo"><?=(!empty($userProfil->connected_at)) ? 'Dernière connexion le '.$userProfil->connected_at : 'Pas de dernière connexion connue.';?></div>
                 </div>
                 <div class="btnProfilContainer">
-                    <?= ($userProfil->id_role !=1 ) ?'<a class="deleteProfil" href="/controllers/admin/delete-user-controller.php?id='.$userProfil->id.'">Supprimer le compte</a>' : ' ' ;?>
+                    <?= ($userProfil->id_role !=1 ) ?'<a class="deleteProfil" href="/controllers/admin/delete-user-controller.php?id='.$userProfil->id.'">Archiver le compte</a>' : ' ' ;?>
                     <span class="updateProfil">Mettre à jour les informations personnelles</span>
                 </div>
             </div>

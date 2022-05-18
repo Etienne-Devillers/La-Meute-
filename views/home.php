@@ -72,13 +72,15 @@
                 <h6 class="improve">Progressez.</h6>
             </span>
         </div>
-        <div class="gameCollectionContainer">
-            <div class="gameDisplay game1"></div>
-            <div class="gameDisplay game2"></div>
-            <div class="gameDisplay game3"></div>
-            <div class="gameDisplay game4"></div>
-            <div class="gameDisplay game5"></div>
-        </div>
+        <a href="/choix-du-jeu">
+            <div class="gameCollectionContainer">
+                <div class="gameDisplay game1"></div>
+                <div class="gameDisplay game2"></div>
+                <div class="gameDisplay game3"></div>
+                <div class="gameDisplay game4"></div>
+                <div class="gameDisplay game5"></div>
+            </div>
+        </a>
     </div>
 </section>
 <!-------------Section Commentaire/truspilot------------->
