@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/assets/css/styleProfil.css">
     <link rel="stylesheet" href="/assets/css/styleAdmin.css">
     <link rel="stylesheet" href="/assets/css/coaching.css">
-
+    <link href='/assets/library/fullCalendar/main.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/assets/css/calendar.css">
+    
     <title>La Meute</title>
 </head>
 <body>

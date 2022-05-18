@@ -246,6 +246,42 @@ public static function getAll(string $search='', int $limit=25, int $offset=0): 
 
     }
 
+    public static function getCoach( int $game ): array
+    {
+        
+        try {
+            // Si la limite n'est pas définie, il faut tout lister
+            $sql = "SELECT
+            `users`.`id`,
+            `mail`,
+            `username`
+            FROM `users`
+            INNER JOIN `users_games` ON `users`.`id` = `users_games`.`id_users`
+            INNER JOIN `games` ON `games`.`id` = `users_games`.`id_games`
+            WHERE `games`.`id` = :game
+            ;" ;
+
+            $sth = Database::dbConnect()->prepare($sql);
+
+
+            $sth->bindValue(':game', $game, PDO::PARAM_INT);
+
+
+            $result = $sth->execute();
+
+            if($result === false){
+                throw new PDOException();
+            } else {
+                return($sth->fetchAll());
+            }
+            
+        }
+        catch(PDOException $ex){
+            return ['test' => "test"];
+        }
+
+    }
+
 public static function isMailExists(string $mail): bool
     {
         try {

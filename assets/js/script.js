@@ -1,6 +1,17 @@
 const playLearnImprove = document.querySelectorAll('span h6')
 let functionToggler = 'go'
+
+
+
+
+
+
+
+
+
+
 // Partie NAvBar 
+
 
 navBarAttached()  // On lance ces fonctions à l'initialisation au cas ou le visiteur n'est pas en haut de page
 

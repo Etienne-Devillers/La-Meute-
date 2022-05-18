@@ -1,0 +1,27 @@
+
+/******************************************/
+/********** PAGE GET COACHING**************/
+/******************************************/
+
+.getCoaching{
+    width: 95vw;
+    margin: 0 auto;
+    margin-top: 20vh;
+
+}
+
+#calendar{
+    width: 40%;
+    height: 500px;
+}
+
+
+#calendar h2 {
+    color: white;
+    margin-left: 20px;
+}
+
+.fc-day-past .fc-daygrid-day-top a{
+    color: grey;
+}
+
