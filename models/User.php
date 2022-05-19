@@ -246,11 +246,10 @@ public static function getAll(string $search='', int $limit=25, int $offset=0): 
 
     }
 
-    public static function getCoach( int $game ): array
+    public static function getCoach( int $game = 0): array
     {
         
         try {
-            // Si la limite n'est pas définie, il faut tout lister
             $sql = "SELECT
             `users`.`id`,
             `mail`,
@@ -258,14 +257,21 @@ public static function getAll(string $search='', int $limit=25, int $offset=0): 
             FROM `users`
             INNER JOIN `users_games` ON `users`.`id` = `users_games`.`id_users`
             INNER JOIN `games` ON `games`.`id` = `users_games`.`id_games`
-            WHERE `games`.`id` = :game
-            ;" ;
+            WHERE `users`.`id_role` = 2";
+            
+            if ($game != 0) {
+                $sql .= ' AND `games`.`id` = :game ';
+            }
+
+            $sql .= ';';
 
             $sth = Database::dbConnect()->prepare($sql);
 
 
-            $sth->bindValue(':game', $game, PDO::PARAM_INT);
-
+            if ($game != 0) {
+                $sth->bindValue(':game', $game, PDO::PARAM_INT);
+            }
+            
 
             $result = $sth->execute();
 
@@ -280,6 +286,25 @@ public static function getAll(string $search='', int $limit=25, int $offset=0): 
             return ['test' => "test"];
         }
 
+    }
+
+    public static function getGame(int $id_user) {
+        
+        $sql = 'SELECT
+        `games`.`name`,
+        `games`.`id`,
+        `username`
+        FROM `users`
+        INNER JOIN `users_games` ON `users`.`id` = `users_games`.`id_users`
+        INNER JOIN `games` ON `games`.`id` = `users_games`.`id_games`
+        WHERE `users`.`id` = :id_coach ;';
+
+
+        $sth = Database::dbConnect()->prepare($sql);
+        $sth->bindValue(':id_coach', $id_user, PDO::PARAM_INT);
+        $sth->execute();
+
+        return $sth->fetch();
     }
 
 public static function isMailExists(string $mail): bool
