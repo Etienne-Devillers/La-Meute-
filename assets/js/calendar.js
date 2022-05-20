@@ -95,7 +95,7 @@
 
                                         });
 
-                                        slotList += `<span class="coachingSlot ${isDateAvailable}">${slot}</span>`
+                                        slotList += `<a href="/reserver-un-coaching?coachId=${coachId}&date=${element.dataset.date}&slots=${index+1}" class="coachingSlot ${isDateAvailable}">${slot}</a>`
 
                                     });
 

@@ -158,3 +158,17 @@ input[type="text"]
     border: 0;
     cursor: pointer;
 }
+
+.noCoachingMsg{
+    text-align: center;
+    color: white;
+    font-size: 32px;
+}
+
+
+/* Table coaching */
+
+.coachingTable{
+    width: 90%;
+    margin: 30px auto;
+}

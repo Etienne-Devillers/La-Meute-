@@ -7,6 +7,12 @@ require_once(dirname(__FILE__) . '/../../utils/db.php');
 
 
 $coachId = intval(filter_input(INPUT_GET, 'coachId', FILTER_SANITIZE_NUMBER_INT));
+$date = trim(filter_input(INPUT_GET, 'date', FILTER_SANITIZE_SPECIAL_CHARS));
+$timeSlots = intval(filter_input(INPUT_GET, 'slots', FILTER_SANITIZE_NUMBER_INT));
+
+
+
+
 
 $coachList = User::getCoach();
 
@@ -21,20 +27,20 @@ foreach ($coachList as $key => $value) {
 
 if ($isCoachExists === true){
 
-    // $pdo = Database::dbConnect();
-    // $pdo->beginTransaction();
+    $pdo = Database::dbConnect();
+    $pdo->beginTransaction();
 
-    // $coaching = new Coaching('2022-05-20', 57, 6);
-    // $coachingCreated = $coaching->create();
-    // $id_coaching = $pdo->lastInsertId();
-    // $userAdded = Coaching::addUser(24, $id_coaching);
-    // if ($coachingCreated === true && $userAdded === true){
-    //     $pdo->commit();
-    // } else {
-    //     $pdo->rollBack();
-    // }
+    $coaching = new Coaching($date, $coachId, $timeSlots);
+    $coachingCreated = $coaching->create();
+    $id_coaching = $pdo->lastInsertId();
+    $userAdded = Coaching::addUser($_SESSION['user']->id, $id_coaching);
+    if ($coachingCreated === true && $userAdded === true){
+        $pdo->commit();
+    } else {
+        $pdo->rollBack();
+    }
 
-    // $test = Coaching::isCoachingExists('2022-05-20', 57, 6);
+    
     
     
     include(dirname(__FILE__).'/../../views/templates/header.php');

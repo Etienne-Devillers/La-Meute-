@@ -194,5 +194,34 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
         }
     }
 
+    public static function getList($id_user) {
+        try {
+            $sql = 'SELECT 
+            DATE_FORMAT(`coaching`.`date`, "%d/%m/%Y") AS date,
+            DATE_FORMAT(`time_slots`.`slot`, "%H:%i") AS slot,
+            `games`.`name` AS gameName,
+            `users`.`username` AS coachName,
+            `users_coaching`.`id_users`
+            FROM `coaching` 
+            INNER JOIN `time_slots` ON `coaching`.`id_time_slots` = `time_slots`.`id`
+            INNER JOIN `users` ON `coaching`.`id_coach` = `users`.`id`
+            INNER JOIN `users_coaching` ON `users_coaching`.`id_coaching` = `coaching`.`id`
+            INNER JOIN  `games` ON `games`.`id` = `coaching`.`id_games` 
+            WHERE `users_coaching`.`id_users` = :id_user
+            ;';
+
+            $sth = Database::dbConnect()->prepare($sql);
+            
+            $sth->bindValue(':id_user', $id_user, PDO::PARAM_STR);
+            
+            $sth->execute();
+
+            return $sth->fetchAll();
+
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
 
 }

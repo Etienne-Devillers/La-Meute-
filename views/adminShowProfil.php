@@ -18,7 +18,7 @@
                 </div>
                 <div class="btnProfilContainer">
                     <?= ($userProfil->id_role !=1 ) ?'<a class="deleteProfil" href="/controllers/admin/delete-user-controller.php?id='.$userProfil->id.'">Archiver le compte</a>' : ' ' ;?>
-                    <span class="updateProfil">Mettre à jour les informations personnelles</span>
+                    <!-- <span class="updateProfil">Mettre à jour les informations personnelles</span> -->
                 </div>
             </div>
             <div class="rightSideInfo">

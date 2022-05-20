@@ -9,6 +9,44 @@
     <div class="coachingContainer positionProfil">
         <div class="categoryTitle">Mes coachings</div>
 
+        <?php  if (empty($coachingList)) { ?>
+            <h4 class="noCoachingMsg">Vous n'avez aucun coaching.</h4>
+            
+            <?php } else { ?> 
+                
+                <table class="coachingTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Horaire</th>
+                            <th>Jeu</th>
+                            <th>Coach</th>
+                            <th></th>
+                            
+                        </tr>
+                
+                    </thead>
+                
+                    <tbody>
+
+                        <?php foreach ($coachingList as $key => $value) { ?>
+
+                            <tr>
+                                <th><?=$value->date?></th>
+                                <th><?=$value->slot?></th>
+                                <th><?=$value->gameName?></th>
+                                <th><?=$value->coachName?></th>
+                                <th><button>voir</button></th>
+                            </tr>
+                        <?php  } ?>
+                        
+
+
+                    </tbody>
+                </table>
+                
+                <?php } ?>
+
     </div>
     <div class="profilContainer positionProfil">
         <div class="categoryTitle">Informations personnelles</div>
