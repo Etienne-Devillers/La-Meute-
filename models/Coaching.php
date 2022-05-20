@@ -194,21 +194,30 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
         }
     }
 
-    public static function getList($id_user) {
+    public static function getList($id_user ='') {
         try {
             $sql = 'SELECT 
             DATE_FORMAT(`coaching`.`date`, "%d/%m/%Y") AS date,
             DATE_FORMAT(`time_slots`.`slot`, "%H:%i") AS slot,
-            `games`.`name` AS gameName,
-            `users`.`username` AS coachName,
-            `users_coaching`.`id_users`
+            `games`.`name` AS gamename,
+            coachtable.`username` AS coachname,
+            test.`username` AS username
             FROM `coaching` 
             INNER JOIN `time_slots` ON `coaching`.`id_time_slots` = `time_slots`.`id`
-            INNER JOIN `users` ON `coaching`.`id_coach` = `users`.`id`
+            INNER JOIN `users` AS coachtable ON `coaching`.`id_coach` = coachtable.`id`
             INNER JOIN `users_coaching` ON `users_coaching`.`id_coaching` = `coaching`.`id`
-            INNER JOIN  `games` ON `games`.`id` = `coaching`.`id_games` 
-            WHERE `users_coaching`.`id_users` = :id_user
-            ;';
+            INNER JOIN users AS test ON test.id = users_coaching.id_users
+            INNER JOIN  `games` ON `games`.`id` = `coaching`.`id_games`
+            
+            ';
+
+            if (!empty($id_user)) {
+                $sql .= ' WHERE `users_coaching`.`id_users` = :id_user ';
+            }
+
+            $sql .= 'ORDER BY date ASC; ';
+
+            
 
             $sth = Database::dbConnect()->prepare($sql);
             
@@ -225,3 +234,8 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
 
 
 }
+
+
+
+
+

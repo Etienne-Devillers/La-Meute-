@@ -172,3 +172,7 @@ input[type="text"]
     width: 90%;
     margin: 30px auto;
 }
+
+.outdated{
+    background-color: rgba(255, 0, 0, 0.271) !important;
+}

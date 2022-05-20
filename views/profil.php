@@ -31,12 +31,12 @@
 
                         <?php foreach ($coachingList as $key => $value) { ?>
 
-                            <tr>
+                            <tr class="<?=(isset($value->datePast))?'outdated':'';?>">
                                 <th><?=$value->date?></th>
                                 <th><?=$value->slot?></th>
                                 <th><?=$value->gameName?></th>
                                 <th><?=$value->coachName?></th>
-                                <th><button>voir</button></th>
+                                <th><button>voir le détail</button></th>
                             </tr>
                         <?php  } ?>
                         
@@ -54,7 +54,7 @@
             <div class="leftSideInfo">
                 <div>
                     <img src="/assets/img/circle-user-solid.svg" alt="">
-                    <div>inscris depuis le 01/10/1008</div>
+                    <div>inscris depuis le <?=$registeredDate?></div>
                     <div><a href="/changer-mot-de-passe" class="resetPwd">Changer le mot de passe</a></div>
                 </div>
                 <div class="btnProfilContainer">
