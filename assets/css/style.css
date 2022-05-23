@@ -9,6 +9,10 @@ body {
     overflow-x: hidden;
 }
 
+main{
+    min-height: 95vh;
+}
+
 a {
     color: white;
     text-decoration: none;
@@ -589,9 +593,13 @@ header {
     width: 100%;
 }
 
+
 .improve {
     color: rgba(10, 255, 2, 1);
 }
+
+
+
 
 
 /************************************************************************/
@@ -783,15 +791,29 @@ header {
 
 
 .questionAnswer {
-    display: none;
+    
     color: white;
     border-radius: 10px;
     background-color: #2A3C44;
-    margin-top: 1em;
-    max-height: 0;
-    transition: max-height 0.3s ease-out;
+    visibility: hidden;
+    padding: 0px 7px;
+    color: transparent;
+    transition:  all 0.3s linear;
+    
 }
-
+.inactiveAnswer{
+    visibility: hidden;
+    margin-top: 0;
+    transition: all  0.3s linear;
+}
+.activeAnswer{
+    visibility: visible;
+    padding: 15px 7px;
+    margin-top: 1em;
+    color: white;
+    display: block;
+    transition: all 0.3s linear;
+}
 
 .collapsibleButton:hover {
     background-color: #2A3C44 !important;
@@ -802,7 +824,8 @@ header {
     position: relative;
     color: white;
     width: 80vw;
-    margin: 15px auto;
+    margin: 0 auto;
+    margin-bottom: 15px;
     background-color: transparent;
 
 }
@@ -832,9 +855,7 @@ header {
     transform: rotate(180deg);
 }
 
-.questionAnswer {
-    padding: 7px 7px;
-}
+
 
 
 
@@ -902,4 +923,23 @@ header {
     .rigthSidePro{
         width: 80%;
     }
+
+    .usernameSpan{
+        display: none;
+    }
+}
+
+
+/**********************************************/
+/******************* footer *******************/
+/**********************************************/
+
+footer{
+    height: 5vh;
+    border-top: solid 1px grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
 }

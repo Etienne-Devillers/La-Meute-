@@ -76,6 +76,10 @@ tr:nth-of-type(even) {
 	background-color: #43464656;
 }
 
+tr:last-child {
+    border-bottom: solid 1px #ECF0F1 ;
+}
+
 /* Profil des utilisteurs */
 
 

@@ -194,7 +194,7 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
         }
     }
 
-    public static function getList($id_user ='') {
+    public static function getList($id_user ='', string $search='', int $limit=25, int $offset=0) {
         try {
             $sql = 'SELECT 
             DATE_FORMAT(`coaching`.`date`, "%d/%m/%Y") AS date,
@@ -206,22 +206,35 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
             INNER JOIN `time_slots` ON `coaching`.`id_time_slots` = `time_slots`.`id`
             INNER JOIN `users` AS coachtable ON `coaching`.`id_coach` = coachtable.`id`
             INNER JOIN `users_coaching` ON `users_coaching`.`id_coaching` = `coaching`.`id`
-            INNER JOIN users AS test ON test.id = users_coaching.id_users
+            INNER JOIN `users` AS test ON `test`.`id` = `users_coaching`.`id_users`
             INNER JOIN  `games` ON `games`.`id` = `coaching`.`id_games`
+            WHERE`users_coaching`.`id_users` LIKE :id_user
+            HAVING `games`.`name` LIKE :search
+            OR date LIKE :search 
+            OR `coachname` LIKE :search 
+            OR `username` LIKE :search
+            OR slot LIKE :search ';
+
+
             
-            ';
-
-            if (!empty($id_user)) {
-                $sql .= ' WHERE `users_coaching`.`id_users` = :id_user ';
-            }
-
-            $sql .= 'ORDER BY date ASC; ';
-
-            
+            $sql .= ' ORDER BY date DESC LIMIT :limit OFFSET :offset ; ';
 
             $sth = Database::dbConnect()->prepare($sql);
             
-            $sth->bindValue(':id_user', $id_user, PDO::PARAM_STR);
+            if (!empty($id_user)) {
+                $sth->bindValue(':id_user', $id_user, PDO::PARAM_STR);
+            } else {
+                $sth->bindValue(':id_user', '%%', PDO::PARAM_STR);
+            }
+            
+            
+                $sth->bindValue(':search', '%'.$search.'%', PDO::PARAM_STR);
+            
+
+            if(!is_null($limit)){
+                $sth->bindValue(':offset', $offset, PDO::PARAM_INT);
+                $sth->bindValue(':limit', $limit, PDO::PARAM_INT);
+            }
             
             $sth->execute();
 
@@ -232,6 +245,33 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
         }
     }
 
+    public static function count(string $search = ''): int{
+
+        try {
+
+            $sql = 'SELECT COUNT(`coaching`.`id`) FROM `coaching`
+                    ;';
+
+            $sth = Database::dbconnect()->prepare($sql);
+
+            $result = $sth->execute();
+            if($result === false){
+                throw new PDOException();
+            } else {
+                $count = $sth->fetchColumn();
+                if($count === false){
+                    return 0;
+                } else {
+                    return $count;
+                }
+            }
+        
+        } catch (\PDOException $ex) {
+            return 0;
+        }
+        
+
+    }
 
 }
 

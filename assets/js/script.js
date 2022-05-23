@@ -51,3 +51,15 @@ document.querySelector('.sideNavBarContainer').addEventListener('click', () => {
 window.addEventListener('scroll', () => {
     appearText()
 });
+
+let gameChoice = document.querySelectorAll('.gameDisplay');
+
+
+for (let index = 1; index <= gameChoice.length; index++) {
+    gameChoice[index-1].addEventListener('mouseenter', ()=>{
+        document.querySelector('.playLearnImproveContainer+a').href = '/choix-du-jeu?game='+index
+    })
+    
+
+
+}

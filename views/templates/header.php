@@ -18,6 +18,8 @@
     <title>La Meute</title>
 </head>
 <body>
+
     <?php
         include(dirname(__FILE__).'/navbar.php');
         ?> 
+        

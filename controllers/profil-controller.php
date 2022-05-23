@@ -9,7 +9,7 @@ $registeredDate = date('d/m/Y', $registeredDate);
 
 
 
-$coachingList = Coaching::getList($_SESSION['user']->id);
+$coachingList = Coaching::getList($_SESSION['user']->id, '', 10, 0);
 
 
 foreach ($coachingList as $key => $value) {

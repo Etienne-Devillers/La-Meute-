@@ -1,4 +1,4 @@
-
+ <?php // var_dump($coachingList)?> 
 
 <section id="profil">
     <div class="profilHeader positionProfil">
@@ -34,8 +34,8 @@
                             <tr class="<?=(isset($value->datePast))?'outdated':'';?>">
                                 <th><?=$value->date?></th>
                                 <th><?=$value->slot?></th>
-                                <th><?=$value->gameName?></th>
-                                <th><?=$value->coachName?></th>
+                                <th><?=$value->gamename?></th>
+                                <th><?=$value->coachname?></th>
                                 <th><button>voir le détail</button></th>
                             </tr>
                         <?php  } ?>

@@ -7,11 +7,11 @@ for (let i = 0; i < collapsibleList.length; i++) {
         this.classList.toggle('questionActive');
         let content = this.nextElementSibling.nextElementSibling;
         if (content.style.display === "block") {
-            content.style.display = "none";
+            content.classList.toggle('inactiveAnswer');
             content.style.maxHeight = null;
             this.nextElementSibling.classList.toggle('switchButton');
         } else {
-        content.style.display = "block";
+            content.classList.toggle('activeAnswer')
         content.style.maxHeight = content.scrollHeight + "px";
         this.nextElementSibling.classList.toggle('switchButton');
         }

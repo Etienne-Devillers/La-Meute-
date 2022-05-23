@@ -16,8 +16,9 @@ if ($_SESSION['user']->id_role != 1) {
         $search = trim(filter_input(INPUT_GET, 'search', FILTER_SANITIZE_SPECIAL_CHARS));
         $perPage = intval(filter_input(INPUT_GET, 'userPerPage', FILTER_SANITIZE_NUMBER_INT));
         
-        $userNum = User::count($search);
-        $pages = ceil($userNum / $perPage);
+        $coachingNum = Coaching::count();
+        
+        $pages = ceil($coachingNum / $perPage);
 
         $currentPage = intval(filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT));
 
@@ -26,14 +27,27 @@ if ($_SESSION['user']->id_role != 1) {
         }
         $offset = $perPage*($currentPage-1);
 
-
+        $coachingList = Coaching::getList('', $search, $perPage, $offset);
     }   else {
-        // $userList = User::getAll();
+        $coachingList = Coaching::getList();
     }
 
-    $coachingList = Coaching::getList();
-    var_dump($coachingList);
-    die;
+
+    
+
+
+foreach ($coachingList as $key => $value) {
+    $coachingDateTime = $value->date.' '.$value->slot;
+    $coachingDateTime = DateTime::createFromFormat('d/m/Y H:i', $coachingDateTime);
+    
+    $actualDate = new DateTime('now');
+    
+    if ($actualDate>$coachingDateTime) {
+        $value->datePast=true;
+    }
+}
+    
+    
     include(dirname(__FILE__).'/../../views/templates/header.php');
     include(dirname(__FILE__).'/../../views/admin-coaching-list.php');
     include(dirname(__FILE__).'/../../views/templates/footer.php'); 

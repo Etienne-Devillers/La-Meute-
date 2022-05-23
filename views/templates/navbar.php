@@ -37,13 +37,21 @@
                 case 1:  
                     echo '<ul class="connectedNav">';
                     echo '<li><a href="/admin"><img class="adminImg" src="/assets/img/screwdriver-wrench-solid.svg" alt=""></a></li>';
-                    echo '<li><a href="/profil"><span>'.$_SESSION['user']->username.'</span><img class="navImg"
+                    echo '<li><a href="/profil"><span class="usernameSpan">'.$_SESSION['user']->username.'</span><img class="navImg"
                             src="/assets/img/circle-user-solid.svg" alt="pictogramme qui représente un portrait"></a>
                         </li>
                         <li><a href="/controllers/logout-controller.php">Déconnexion</a></li>
                     </ul>';
                     break;
-                                
+                         
+                    case 3:  
+                        echo '<ul class="connectedNav">';
+                        echo '<li><a href="/profil"><span class="usernameSpan">'.$_SESSION['user']->username.'</span><img class="navImg"
+                                src="/assets/img/circle-user-solid.svg" alt="pictogramme qui représente un portrait"></a>
+                            </li>
+                            <li><a href="/controllers/logout-controller.php">Déconnexion</a></li>
+                        </ul>';
+                        break;
                 default:
                     
                     break;

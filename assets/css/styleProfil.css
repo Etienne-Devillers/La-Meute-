@@ -32,7 +32,7 @@
     margin-top: 3vh;
     background-color: #2A3C44;
     border-radius: 15px;
-
+margin-bottom: 3vh;
 }
 
 .profilHeader {
@@ -51,7 +51,7 @@
 }
 
 .coachingContainer {
-    height: 35vh;
+    min-height: 35vh;
 }
 
 .profilContainer {
@@ -70,6 +70,7 @@
 
 .leftSideInfo img {
     width: 180px;
+    margin-left: 15%;
 }
 
 .leftSideInfo {
@@ -175,4 +176,24 @@ input[type="text"]
 
 .outdated{
     background-color: rgba(255, 0, 0, 0.271) !important;
+}
+
+@media screen and (max-width: 900px){
+    
+    .personnalInformationContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .formField{
+        width: 100%;
+    }
+
+    .categoryTitle{
+        font-size: 24px;
+    }
+    .rightSideInfo{
+        width: 90%;
+        margin: auto;
+    }
 }

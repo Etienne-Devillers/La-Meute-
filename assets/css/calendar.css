@@ -98,6 +98,18 @@
     cursor: pointer;
 }
 
+.fc-day-future div a{
+    color: #0bff03;
+}
+.fc-day-today div a{
+    color: #0bff03;
+}
+
+.fc-scrollgrid-sync-table tbody:hover{
+    cursor: pointer;
+}
+
+
 
 /* width */
 ::-webkit-scrollbar {

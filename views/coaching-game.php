@@ -9,11 +9,11 @@
 
     <div class="gameSelector">
 
-        <div class="game1 gameChoice"></div>
-        <div class="game2 gameChoice"></div>
-        <div class="game3 gameChoice"></div>
-        <div class="game4 gameChoice"></div>
-        <div class="game5 gameChoice"></div>
+        <div class="game1 gameChoice <?=($gameId == 1)? 'selectedGame' : '' ?>"></div>
+        <div class="game2 gameChoice <?=($gameId == 2)? 'selectedGame' : '' ?>"></div>
+        <div class="game3 gameChoice <?=($gameId == 3)? 'selectedGame' : '' ?>"></div>
+        <div class="game4 gameChoice <?=($gameId == 4)? 'selectedGame' : '' ?>"></div>
+        <div class="game5 gameChoice <?=($gameId == 5)? 'selectedGame' : '' ?>"></div>
     </div>
 </section>
 

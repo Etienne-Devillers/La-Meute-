@@ -23,6 +23,16 @@
                 // On attrape la tr parent de la td.
                 let row = info.dayEl.parentNode
 
+                //on gère le BGColor des tr
+                allRows = document.querySelectorAll('.fc-scrollgrid-sync-table tbody tr');
+                console.log(allRows)
+                
+                
+                allRows.forEach(element => {
+                    element.style.backgroundColor = '';
+                });
+
+                row.style.backgroundColor = "#50ff004a";
                 //on choppe les td de notre tr
                 tdList = row.querySelectorAll('td');
 
@@ -37,7 +47,7 @@
                 let form = new FormData()
                 form.append('date', dayList)
                 form.append('coachId', coachId)
-                console.log(form)
+                
                 fetch(`/controllers/ajax/coaching-slots-ajax-controller.php`, {
                     method: "POST",
                     body: form
@@ -74,7 +84,7 @@
 
                                 slotList = '';
                                 
-                                    isDateAvailable = '';
+                                    
                                     slots.forEach((slot, index) => {
 
                                         actualTime = new Date();
@@ -91,8 +101,10 @@
 
                                             if ((element.dataset.date == coaching.date) && (coaching.id_coach == coachId) && (coaching.id_time_slots == index+1)) {
                                                 isDateAvailable='reserved';
+                                            }  
+                                            if (actualTime>coachingTime) {
+                                                isDateAvailable = '';
                                             }
-
                                         });
 
                                         slotList += `<a href="/reserver-un-coaching?coachId=${coachId}&date=${element.dataset.date}&slots=${index+1}" class="coachingSlot ${isDateAvailable}">${slot}</a>`
