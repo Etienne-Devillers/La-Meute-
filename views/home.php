@@ -5,7 +5,7 @@
         <p>Et commence à progresser dès aujourd'hui</p>
 
         <div class="landingPageBottomContainer">
-            <a class="firstContent"><button class="greenRectangle">Rejoins nous</button></a>
+            <a class="firstContent" href="/inscription"><button class="greenRectangle">Rejoins nous</button></a>
             <div class="secondContent"> ou</div>
             <div class="rightPartContainer">
                 <div class="arrowAngle"></div>

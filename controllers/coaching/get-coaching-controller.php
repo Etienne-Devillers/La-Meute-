@@ -6,6 +6,12 @@ require_once(dirname(__FILE__) . '/../../models/Coaching.php');
 require_once(dirname(__FILE__) . '/../../utils/db.php');
 
 
+if (empty($_SESSION['user'])) {
+    SessionFlash::create('Vous devez vous connecter pour accéder à cette section.');
+    header('location: /connexion');
+    exit;
+}
+
 $coachId = intval(filter_input(INPUT_GET, 'coachId', FILTER_SANITIZE_NUMBER_INT));
 $date = trim(filter_input(INPUT_GET, 'date', FILTER_SANITIZE_SPECIAL_CHARS));
 $timeSlots = intval(filter_input(INPUT_GET, 'slots', FILTER_SANITIZE_NUMBER_INT));
