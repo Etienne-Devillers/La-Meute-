@@ -11,7 +11,7 @@
         id="mail" 
         class="field" 
         placeholder="<?= $error['mail'] ?? '' ?>"
-        value="<?= (!isset($error['mail']) && isset($mmail)) ? $mail : ''?>"
+        value="<?= (!isset($error['mail']) && isset($mail)) ? $mail : ''?>"
         >
         
 

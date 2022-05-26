@@ -38,6 +38,7 @@ mail.addEventListener('input', () =>{
 
         fetch(`/controllers/ajax/register-ajax-controller.php?mail=${mail.value}`)
 
+        
         .then(function(response){
             return response.json();
         })

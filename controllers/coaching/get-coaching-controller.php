@@ -28,6 +28,7 @@ $isCoachExists = false;
 foreach ($coachList as $key => $value) {  
     if ($coachId == $value->id) {
         $isCoachExists = true;
+        $coachName = $value->username;
     }
 }
 
@@ -42,13 +43,11 @@ if ($isCoachExists === true){
     $userAdded = Coaching::addUser($_SESSION['user']->id, $id_coaching);
     if ($coachingCreated === true && $userAdded === true){
         $pdo->commit();
+        SessionFlash::create('Votre coaching a bien été pris en compte, vous pouvez dès à présent le consulter dans la liste de vos coachings, sur votre profil.' );
     } else {
         $pdo->rollBack();
     }
 
-    
-    
-    
     include(dirname(__FILE__).'/../../views/templates/header.php');
     include(dirname(__FILE__).'/../../views/get-coaching.php');
     include(dirname(__FILE__).'/../../views/templates/footer.php');

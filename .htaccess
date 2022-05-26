@@ -33,8 +33,14 @@ RewriteRule ^profil$ /controllers/profil-controller.php [L]
   # # /choix du jeu
   RewriteRule ^choix-du-jeu$ /controllers/coaching/coaching-game-controller.php [L]
 
-  # # /choix du jeu
+  # # /reserver
   RewriteRule ^reserver-un-coaching$ /controllers/coaching/get-coaching-controller.php [L]
+
+  # # /supprimer
+  RewriteRule ^delete$ /controllers/coaching/delete-coaching-controller.php [L]
+
+  # # /laissez-un-commentaire
+  RewriteRule ^laissez-un-commentaire$ /controllers/coaching/review-controller.php [L]
 # # /profil?id=N
 # RewriteCond %{QUERY_STRING} (?:^|&)id=(\d+)
 # RewriteRule ^profil$ /controllers/profil-patient-controller.php [L]

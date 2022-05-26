@@ -94,6 +94,10 @@
     border: solid 1px red;
 }
 
+.coachName{
+    color: #0bff03;
+}
+
 .available:hover {
     cursor: pointer;
 }
@@ -109,6 +113,13 @@
     cursor: pointer;
 }
 
+.displayCoachingMsg{
+    width: 80%;
+    margin: auto;
+    color: white;
+    font-size: 32px;
+    margin-top: 50px;
+}
 
 
 /* width */

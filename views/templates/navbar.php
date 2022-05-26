@@ -6,7 +6,7 @@
     <div class="sideNavBar">
         <ul class="sideNavBarList">
             <li><a href="/comment-ca-marche">Comment ça marche</a></li>
-            <li><a href="https://www.google.com">Qui sommes nous</a></li>
+            <!-- <li><a href="https://lamanu.fr/">Qui sommes nous</a></li> -->
             <li><a href="/foire-aux-questions">FAQ</a></li>
             
         </ul>
@@ -21,7 +21,7 @@
             <img src="/assets/img/bars-solid.svg" alt="menu burger" class="burgerMenu">
             <ul class="navBarLinks">
                 <li><a href="/comment-ca-marche">Comment ça marche</a></li>
-                <li><a href="https://lamanu.fr/">Qui sommes nous</a></li>
+                <!-- <li><a href="https://lamanu.fr/">Qui sommes nous</a></li> -->
                 <li><a href="/foire-aux-questions">FAQ</a></li>
                 
             </ul>

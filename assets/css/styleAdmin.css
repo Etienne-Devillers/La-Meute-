@@ -37,6 +37,18 @@
 .optionField{
     color: white;
     margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+#userPerPage{
+    height: 27px;
+    margin: 0 5px;
+}
+
+.optionField button{
+    height: 27px;
+    margin: 0 5px;
 }
 
 .pageSelector a{

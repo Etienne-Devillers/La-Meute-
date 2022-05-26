@@ -3,10 +3,13 @@
 
     <div id="calendar"></div>
     <div class="rightSideGetCoaching">
-        <h5>Disponibilités</h5>
+        <h5>Disponibilités - <span class="coachName"><?=$coachName ?? ''?></span></h5>
         <div id="coachingSlots">
-
-            
+        <div class="displayCoachingMsg">
+            <?=SessionFlash::display('message') ?? ''
+        ?>
+        </div>
+                
 
     </div>
 </section>

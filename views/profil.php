@@ -1,4 +1,4 @@
- <?php // var_dump($coachingList)?> 
+ <?php  // var_dump($coachingList)?> 
 
 <section id="profil">
     <div class="profilHeader positionProfil">
@@ -18,7 +18,7 @@
                     <thead>
                         <tr>
                             <th>Date</th>
-                            <th>Horaire</th>
+                            <th class="gameTh">Horaire</th>
                             <th>Jeu</th>
                             <th>Coach</th>
                             <th></th>
@@ -34,9 +34,18 @@
                             <tr class="<?=(isset($value->datePast))?'outdated':'';?>">
                                 <th><?=$value->date?></th>
                                 <th><?=$value->slot?></th>
-                                <th><?=$value->gamename?></th>
+                                <th class="gameTh"><?=$value->gamename?></th>
                                 <th><?=$value->coachname?></th>
-                                <th><button>voir le détail</button></th>
+                                <th class="lastThProfil">
+                                    <a href="<?=(isset($value->datePast))?'/laissez-un-commentaire?coachingId='.$value->id.'':'/delete?coachingId='.$value->id;?>">
+                                        <span class="lastTh <?=(isset($value->datePast))?'updateProfil':'deleteProfil';?>">
+                                                <?=(isset($value->datePast))?'Laisser un commentaire':'Annuler le coaching';?>
+                                        </span>
+                                        <span class="lastThMobile">
+                                            <img src="<?=(isset($value->datePast))?'/assets/img/ellipsis-solid.svg':'/assets/img/trash-can-solid.svg';?>" alt="">
+                                        </span>
+                                    </a>
+                                </th>
                             </tr>
                         <?php  } ?>
                         
@@ -97,7 +106,7 @@
 
                     <input type="hidden" value="<?=(!empty($_SESSION['user']->id)) ?$_SESSION['user']->id : '';?>" name="id">
 
-                    <input type="submit" class="submitBtn">
+                    <input type="submit" class="submitBtn updateProfil">
                 </form>
             </div>
         </div>

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/assets/css/coaching.css">
     <link href='/assets/library/fullCalendar/main.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="/assets/css/calendar.css">
+    <link rel="shortcut icon" href="/assets/img/MDMjib.png" type="image/x-icon">
     
     <title>La Meute</title>
 </head>

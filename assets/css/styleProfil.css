@@ -64,13 +64,18 @@ margin-bottom: 3vh;
     display: flex;
     flex-direction: row;
 }
+
+.lastThProfil{
+    text-align: center;
+}
+
 .resetPwdContainer{
     margin-top: 20vh;
 }
 
 .leftSideInfo img {
     width: 180px;
-    margin-left: 15%;
+    
 }
 
 .leftSideInfo {
@@ -84,7 +89,7 @@ margin-bottom: 3vh;
 .errorMsg{
     color: red;
 }
-.leftSideInfo .updateProfil {
+.leftSideInfo .updateProfil, .updateProfil {
     background: linear-gradient(120deg, #28a737 0%, #0aff02 100%);
     padding: 0.2em 0.5em;
     border-radius: 15px;
@@ -93,7 +98,7 @@ margin-bottom: 3vh;
     margin: 10px 10px;
 }
 
-.leftSideInfo .deleteProfil {
+ .deleteProfil {
     background: linear-gradient(120deg, #ff3333 0%, #ff0202 100%);
     padding: 0.2em 0.5em;
     border-radius: 15px;
@@ -178,6 +183,16 @@ input[type="text"]
     background-color: rgba(255, 0, 0, 0.271) !important;
 }
 
+.leftSideInfo>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lastThMobile img{
+    display: none;
+}
+
 @media screen and (max-width: 900px){
     
     .personnalInformationContainer{
@@ -195,5 +210,25 @@ input[type="text"]
     .rightSideInfo{
         width: 90%;
         margin: auto;
+    }
+
+    .btnProfilContainer, .leftSideInfo>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gameTh{
+        display: none;
+    }
+    .lastThMobile img{
+        display: block;
+    }
+    .lastThMobile img{
+        width: 20px;
+
+    }
+    .lastTh{
+        display: none;
     }
 }

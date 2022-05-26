@@ -197,6 +197,7 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
     public static function getList($id_user ='', string $search='', int $limit=25, int $offset=0) {
         try {
             $sql = 'SELECT 
+            `coaching`.`id`,
             DATE_FORMAT(`coaching`.`date`, "%d/%m/%Y") AS date,
             DATE_FORMAT(`time_slots`.`slot`, "%H:%i") AS slot,
             `games`.`name` AS gamename,
@@ -273,6 +274,41 @@ public static function isCoachingExists(string $date, int $id_coach, $id_time_sl
 
     }
 
+    public static function delete(int $coachingId) {
+
+        try {
+
+            $pdo = Database::dbconnect();
+            $pdo->beginTransaction();
+
+            $sql = 'DELETE FROM `users_coaching`
+                    WHERE `id_coaching` = :coachingId ;';
+
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':coachingId', $coachingId, PDO::PARAM_INT);
+
+            $sth->execute();
+
+
+            $sql2 = 'DELETE FROM `coaching`
+                    WHERE `id` = :coachingId ;' ;
+
+            $sth2 = $pdo->prepare($sql2);
+            $sth2->bindValue(':coachingId', $coachingId, PDO::PARAM_INT);
+            $sth2->execute();
+
+            if (!$sth || !$sth2) {
+                $pdo->rollback();
+                throw new PDOException();
+            } else {
+                $pdo->commit();
+            }
+        
+        } catch (\PDOException $ex) {
+            return false;
+        }
+
+    }
 }
 
 

@@ -7,13 +7,14 @@ require_once(dirname(__FILE__) . '/../models/User.php');
 
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
 
 
 //Load Composer's autoloader
-require_once(dirname(__FILE__) . '/../vendor/autoload.php');
+// require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
 
 if (!empty($_SESSION['user'])) {

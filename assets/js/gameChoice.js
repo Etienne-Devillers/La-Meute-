@@ -29,7 +29,12 @@ function fetchCoachs(index){
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis iste laboriosam, vel omnis
                 dicta magnam fugit nemo tempore, beatae quisquam quaerat pariatur libero veniam corrupti facere
                 veritatis totam nostrum numquam?
+
+                <div class="citation"> 
+                    blabla
+                </div>
             </div>
+           
         </div>
 
     </div>`
